@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5" method="upgrade">
+
+	<name>COM_WEEVER</name>
+	<creationDate>2013-11-15</creationDate>
+	<author>Aaron Song, Robert Gerald Porter, Matt Grande, Andrew Holden</author>
+	<authorEmail>support@weeverapps.com</authorEmail>
+	<authorUrl>http://www.weeverapps.com/</authorUrl>
+	<copyright>(c) 2010-2013 Weever Apps Inc.</copyright>
+	<license>GPLv3</license>
+	<version>3.0.0</version>
+	<releaseType>Beta</releaseType>
+	<description>COM_WEEVER_DESCRIPTION</description>
+	
+	<scriptfile>install.weever.php</scriptfile>
+ 
+	<install>
+		<sql>
+			<file charset="utf8" driver="mysql">sql/install.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file charset="utf8" driver="mysql">sql/uninstall.sql</file>
+		</sql>
+	</uninstall>
+
+	<administration>
+	
+		<menu link="com_weever" img="components/com_weever/assets/icon-16-weever_menu_logo.png">COM_WEEVER_MENU</menu>
+			 
+		 <files folder="admin">
+		 
+			<filename>weever.php</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<folder>assets</folder>
+			<folder>classes</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+			<folder>sql</folder>
+			
+		  </files>
+		  
+		  <languages folder="admin">
+		  
+		  	<language tag="en-GB">languages/en-GB/en-GB.com_weever.ini</language>
+		  	<language tag="en-GB">languages/en-GB/en-GB.com_weever.sys.ini</language>
+		  	
+		  </languages>
+	  
+	</administration>
+	
+	<media destination="com_weever" folder="media">
+		<filename>index.html</filename>
+		<filename>phone_load_.png</filename>
+		<filename>tablet_load_.png</filename>
+		<filename>tablet_landscape_load_.png</filename>
+		<filename>icon_.png</filename>
+		<filename>titlebar_logo_.png</filename>
+	</media>
+
+	<updateservers>
+	
+		<server type="collection">http://weeverapps.com/download_files/weever_appbuilder.xml</server>
+		
+	</updateservers>
+	 
+</extension>
