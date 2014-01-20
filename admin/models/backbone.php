@@ -34,6 +34,8 @@ if( !class_exists("JModelLegacy") )
 class WeeverModelBackbone extends JModelLegacy
 {
 
+	public 	$key = null;
+	
 	public 	$json = null;
 
 	public function __construct()
@@ -43,6 +45,56 @@ class WeeverModelBackbone extends JModelLegacy
        
        $this->key 	= comWeeverHelper::getKey();
        
+	}
+	
+	public function setTier()
+	{
+		
+		//die('123');
+		$this->json = $this->getAccount();
+		
+		$row 		= JTable::getInstance('WeeverConfig', 'Table');
+		$row->load(101);
+		
+		$row->setting = $this->json->account->tier_raw;
+		$row->store();
+		
+		//return $this->json;
+	
+	}
+	
+	
+	private function getAccount()
+	{
+	
+		$api_endpoint 		= "account/get_account";
+		$remote_url 		= comWeeverConst::LIVE_SERVER . comWeeverConst::API_VERSION . $api_endpoint;
+		$stage_url 			= '';
+		$remote_query 		= array( 	
+		
+			'site_key' 		=> $this->key
+		
+		);
+		
+		if( comWeeverHelper::getStageStatus() )
+			$remote_url = comWeeverConst::LIVE_STAGE . comWeeverConst::API_VERSION . $api_endpoint;
+		
+		$postdata 	= comWeeverHelper::buildWeeverHttpQuery($remote_query);
+		
+		$response	= comWeeverHelper::sendToWeeverServer($postdata, $remote_url);
+		
+		$json		= json_decode( $response );
+
+		if( isset($json->error) && $json->error == true )
+		{
+		
+			 JError::raiseNotice(100, JText::_( "Server replied: " . $json->message ));
+			 return false;
+			 
+		}
+		
+		return $json;
+
 	}
 
 		

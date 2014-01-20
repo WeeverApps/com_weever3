@@ -61,6 +61,15 @@ class WeeverController extends JControllerLegacy
 	
 	}
 	
+	public function save_config()
+	{
+		
+		$model  = $this->getModel('backbone');
+		               
+		$model->setTier();
+		
+	
+	}
 	
 
 }

@@ -22,6 +22,10 @@
 
 defined('_JEXEC') or die;
 
+define("WEEVER_PLUGIN_URL", JURI::base().'components/com_weever/');
+
+//var_dump(WEEVER_PLUGIN_URL);
+//die();
 /* Version compatibility stuffs */
 
 $version 		= new JVersion;
@@ -35,10 +39,11 @@ if( !defined('DS') )
 
 require_once (JPATH_COMPONENT.DS.'helpers'.DS.'helper'.'.php');
 require_once (JPATH_COMPONENT.DS.'helpers'.DS.'config'.'.php');
+//require_once (JPATH_COMPONENT.DS.'helpers'.DS.'file-upload'.'.php');
 
 JTable::addIncludePath( JPATH_COMPONENT . DS . 'tables' );
 
-comWeeverHelperJS::loadConfJS($staging);
+//comWeeverHelperJS::loadConfJS($staging);
 
 jimport('joomla.plugin.helper');
 JPluginHelper::importPlugin( 'weever' );
@@ -58,9 +63,10 @@ $weeverIcon = "weever_toolbar_title";
 
 if((ini_get('allow_url_fopen') != 1) && (!in_array('curl', get_loaded_extensions())) )
 	JError::raiseNotice(100, JText::_('WEEVER_NOTICE_ALLOW_URL_FOPEN_OFF'));	
-	
-if(!JPluginHelper::isEnabled('system', 'mobileesp'))
-	JError::raiseNotice(100, JText::_('WEEVER_ERROR_PLUGIN_DISABLED'));
+
+//*******temporarily	
+//if(!JPluginHelper::isEnabled('system', 'mobileesp'))
+	//JError::raiseNotice(100, JText::_('WEEVER_ERROR_PLUGIN_DISABLED'));
 	
 # Zeroes out the title in favour of the logo
 JToolBarHelper::title( '&nbsp;', $weeverIcon);
