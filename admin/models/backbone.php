@@ -131,6 +131,24 @@ class WeeverModelBackbone extends JModelLegacy
 
     }
     
+    public function getK2Categories()
+    {
+     
+   		$query = "SELECT * FROM #__k2_categories WHERE published = '1' AND access < '2'";  
+
+        return $this->_getList($query);                
+
+    }
+    
+    public function getK2Items()
+    {
+     
+   		$query = "SELECT *, title AS name FROM #__k2_items WHERE published = '1' AND access < '2'";  
+
+        return $this->_getList($query);                
+
+    }
+    
     public function getContentCategories()
     {
     

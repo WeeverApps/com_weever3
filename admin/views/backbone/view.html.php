@@ -38,11 +38,15 @@ class WeeverViewBackbone extends JViewLegacy
 	public function display($tpl = null)
 	{
 
-		$contentCategories         = $this->get('contentCategories');
-		$contentArticles         = $this->get('contentArticles');
-		$MenuJoomlaBlogs         = $this->get('MenuJoomlaBlogs');
+		$contentCategories   	= $this->get('contentCategories');
+		$contentArticles     	= $this->get('contentArticles');
+		$MenuJoomlaBlogs     	= $this->get('MenuJoomlaBlogs');
 		
-		//var_dump($contentCategories);
+		$k2Categories   		= $this->get('k2Categories');
+		$k2Items   				= $this->get('k2Items');
+		$MenuK2Blogs         	= $this->get('MenuK2Blogs');
+		
+		//var_dump($MenuK2Blogs);
 		//die();
 		
 		$this->assign( 'appEnabled', 	comWeeverHelper::getAppStatus() );		
@@ -55,6 +59,9 @@ class WeeverViewBackbone extends JViewLegacy
 		$this->assign( 'contentCategories', 	$contentCategories );
 		$this->assign( 'contentArticles', 	$contentArticles );
 		$this->assign( 'MenuJoomlaBlogs', 	$MenuJoomlaBlogs );
+		$this->assign( 'MenuK2Blogs', 	$MenuK2Blogs );
+		$this->assign( 'k2Categories', 	$k2Categories );
+		$this->assign( 'k2Items', 	$k2Items );
 		
 		//var_dump($this->appEnabled);
 		//var_dump($this->appKey);
