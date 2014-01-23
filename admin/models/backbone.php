@@ -96,6 +96,57 @@ class WeeverModelBackbone extends JModelLegacy
 		return $json;
 
 	}
+	
+	public function getContactItems()
+    {
+    
+            if(comWeeverHelper::joomlaVersion() == "1.5")
+                     $query = "SELECT * FROM #__contact_details WHERE published = '1' AND access = '0'"; 
+                     
+            else 
+                     $query = "SELECT * FROM #__contact_details WHERE published = '1' AND access < '2'"; 
 
+    
+            return $this->_getList($query);                
+
+    }
+
+    
+    public function getMenuJoomlaBlogs()
+    {
+    
+		$query = "SELECT *, title AS name FROM #__menu WHERE ( link LIKE '%option=com_content&view=category%' OR link LIKE '%option=com_content&view=section%' OR link LIKE '%option=com_content&view=featured%' ) AND published = '1' AND access < '2'";  
 		
+		return $this->_getList($query);                
+
+    }
+    
+    
+    public function getMenuK2Blogs()
+    {
+     
+   		$query = "SELECT *, title AS name FROM #__menu WHERE link LIKE '%option=com_k2&view=itemlist%' AND published = '1' AND access < '2'";  
+
+        return $this->_getList($query);                
+
+    }
+    
+    public function getContentCategories()
+    {
+    
+		$query = "SELECT *, title AS name FROM #__categories WHERE published = '1' AND access < '2'";  
+    
+        return $this->_getList($query);
+    
+    }
+    
+    public function getContentArticles()
+    {
+    
+    	$query = "SELECT *, title AS name FROM #__content WHERE state >= '1' AND access < '2'";  
+    
+        return $this->_getList($query);
+    
+    }
+	
 }

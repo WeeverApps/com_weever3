@@ -38,12 +38,23 @@ class WeeverViewBackbone extends JViewLegacy
 	public function display($tpl = null)
 	{
 
+		$contentCategories         = $this->get('contentCategories');
+		$contentArticles         = $this->get('contentArticles');
+		$MenuJoomlaBlogs         = $this->get('MenuJoomlaBlogs');
+		
+		//var_dump($contentCategories);
+		//die();
+		
 		$this->assign( 'appEnabled', 	comWeeverHelper::getAppStatus() );		
 		$this->assign( 'appKey', 		comWeeverHelper::getKey() );
 		$this->assign( 'siteDomain', 	comWeeverHelper::getSiteDomain() );
 		$this->assign( 'deviceSettings', comWeeverHelper::getDeviceSettings() );
 		$this->assign( 'appStatus', 	comWeeverHelper::getAppStatus() );
 		$this->assign( 'appTier', 		comWeeverHelper::getTier() );
+		
+		$this->assign( 'contentCategories', 	$contentCategories );
+		$this->assign( 'contentArticles', 	$contentArticles );
+		$this->assign( 'MenuJoomlaBlogs', 	$MenuJoomlaBlogs );
 		
 		//var_dump($this->appEnabled);
 		//var_dump($this->appKey);
@@ -84,6 +95,8 @@ class WeeverViewBackbone extends JViewLegacy
 		    //wx.uploadPath = true;
 		    //wx.uploadUrl = true;";
 		
+		//var_dump($content);
+		//die();
 		
 		$document->addScriptDeclaration( $content );
 		
