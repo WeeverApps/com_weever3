@@ -116,22 +116,7 @@ defined('_JEXEC') or die;
 
         <!-- start: plugin only - mobile redirect status -->
         <!-- -->
-        <div class="row">
-            <div class="small-8 columns" style="padding-left: 0; padding-right: 0;">
-                <h6 class="subheader wx-switch-labelright">
-                    <img class="wx-load-spinner" src="<?php echo JURI::base(); ?>components/com_weever/static/img/loading.gif" alt="Loading" id="status-loading" />
-                    &nbsp;app is <span id="appStatus"><b><?php if ( $this->appStatus == 1 ) { echo 'on'; } else { echo 'off'; } ?>line</b></span> for mobile visitors.
-                </h6>
-            </div>
-            <div class="small-4 columns" style="padding-right: 0;">
-                <div class="switch">
-                    <input id="off" name="switch-x" type="radio" <?php if ( $this->appStatus == 0 ) { echo 'checked'; } ?>>
-                    <label for="off" onclick="">offline</label>
-                    <input id="on" name="switch-x" type="radio"  <?php if ( $this->appStatus == 1 ) { echo 'checked'; } ?>>
-                    <label for="on" onclick="">online</label>
-                    <span></span>
-                </div>
-            </div>
+        <div class="row" id="appToggle">
         </div>
 
         <!-- start: app preview -->
