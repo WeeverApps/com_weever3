@@ -79,7 +79,7 @@ class WeeverViewBackbone extends JViewLegacy
 
 		$document 	= JFactory::getDocument();
 		//$document->addStyleSheet( JURI::base().'components/com_weever/static/css_joomla/app.css' );
-		
+		$siteDomain			= 'http://'.$this->siteDomain.'/';
 		$pluginUrl 			= JURI::base().'components/com_weever/';
 		$navIconDir 		= JURI::base().'components/com_weever/static/img/';
 		$baseExtensionUrl 	= JURI::base().'index.php?option=com_weever';
@@ -90,6 +90,7 @@ class WeeverViewBackbone extends JViewLegacy
 		
 		$content = "
 		    var wx = wx || {};
+		    wx.siteDomain = '".$siteDomain."';
 		    wx.pluginUrl = '".$pluginUrl."';
 		    wx.navIconDir = '".$navIconDir."';
 		    wx.baseExtensionUrl = '".$baseExtensionUrl."';
@@ -108,7 +109,7 @@ class WeeverViewBackbone extends JViewLegacy
 		$document->addScriptDeclaration( $content );
 		
 		/***** joomla addscript will run first before addCustomTag***/
-		$document->addScript( 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' );
+		//$document->addScript( 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' );
 		
 		$document->addScript( 'http://code.jquery.com/jquery-migrate-1.2.1.min.js' );
 		
@@ -174,6 +175,9 @@ class WeeverViewBackbone extends JViewLegacy
 		foreach( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/views/*.js' ) as $view_js_file ) {
 		     $document->addCustomTag( '<script src="'.JURI::base(). 'components/com_weever/static/js/views/'.basename($view_js_file). '" type="text/javascript"></script>' );  
 		}
+		
+		echo $this->loadTemplate('js');
+		
         
 		parent::display($tpl);
 	

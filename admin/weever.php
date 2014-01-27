@@ -54,6 +54,8 @@ $document 			= JFactory::getDocument();
 
 $weeverIcon = "weever_toolbar_title";
 
+$document->addScript	( JURI::base(true).'/components/com_weever/assets/js/jquery.js?v='.comWeeverConst::VERSION );
+
 /* Load our Javascripts */
 
 //if( comWeeverHelper::joomlaVersion() > 2.9 )

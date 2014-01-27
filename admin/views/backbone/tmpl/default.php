@@ -21,10 +21,11 @@
 */
 
 defined('_JEXEC') or die;
-
 ?>
 
 <link rel="stylesheet" href="<?php echo JURI::base(); ?>components/com_weever/static/css_joomla/app.css" type="text/css" />
+
+<link rel="stylesheet" href="<?php echo JURI::base(); ?>components/com_weever/static/css/weever-icon-font-1.css" type="text/css" />
 
 <!-- insert HTML here -->
 
@@ -283,12 +284,11 @@ defined('_JEXEC') or die;
 
     var buildNum = '';
     
-    console.log('abc');
+    console.log('checking wx...');
     console.log(wx);
     
     function doPoll() {
         if ( wx.poll ) {
-            console.log('Poll...');
             wx.getText('_metadata/get_build_version', function(data) {
                 if (data != buildNum) {
                     buildNum = data;
