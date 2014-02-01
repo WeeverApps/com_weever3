@@ -153,6 +153,11 @@ class comWeeverHelper
 	public static function getAppStatus() 		{ return self::getSetting(6); }
 	public static function getStageStatus()		{ return self::getSetting(7); }
 	public static function getTier()			{ return self::getSetting(101); }
+	public static function getExpiry()			{ return self::getSetting(102); }
+	public static function getWeeverMainTitlebarColor()			{ return self::getSetting(103); }
+	public static function getWeeverMainTitlebarTextColor()			{ return self::getSetting(104); }
+	public static function getWeeverSubtabColor()			{ return self::getSetting(105); }
+	public static function getWeeverSubtabTextColor()			{ return self::getSetting(106); }
 	
 	
 	public static function isWebKit()

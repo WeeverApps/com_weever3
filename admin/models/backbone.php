@@ -63,6 +63,62 @@ class WeeverModelBackbone extends JModelLegacy
 	
 	}
 	
+	public function save_device()
+	{
+		
+		$row 	=& JTable::getInstance( 'WeeverConfig', 'Table' );
+		
+		if( JRequest::getVar('tablets_enabled') ) {
+		
+			$devices = "DetectTierWeeverSmartphones,DetectTierWeeverTablets";
+		}
+		
+		$row->load(5);
+		$row->setting = $devices;
+		$row->store();
+	
+	}
+	
+	public function save_logo_color()
+	{
+		
+		$row 	=& JTable::getInstance( 'WeeverConfig', 'Table' );
+		
+		if( JRequest::getVar('main_titlebar_color') ) {
+		
+			$row->load(103);
+			$row->setting = JRequest::getVar('main_titlebar_color');
+			$row->store();
+			
+		} elseif ( JRequest::getVar('main_titlebar_text_color') ) {
+			
+			$row->load(104);
+			$row->setting = JRequest::getVar('main_titlebar_text_color');
+			$row->store();
+			
+		} elseif ( JRequest::getVar('subtab_color') ) {
+			
+			$row->load(105);
+			$row->setting = JRequest::getVar('subtab_color');
+			$row->store();
+			
+		} else {
+			
+			$row->load(106);
+			$row->setting = JRequest::getVar('subtab_text_color');
+			$row->store();
+			
+		}
+	
+	}
+	
+	public function save_appKey()
+	{
+		
+		comWeeverHelper::saveAccount();
+	
+	}
+	
 	
 	private function getAccount()
 	{

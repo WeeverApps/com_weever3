@@ -55,6 +55,16 @@ class WeeverViewBackbone extends JViewLegacy
 		$this->assign( 'deviceSettings', comWeeverHelper::getDeviceSettings() );
 		$this->assign( 'appStatus', 	comWeeverHelper::getAppStatus() );
 		$this->assign( 'appTier', 		comWeeverHelper::getTier() );
+		$this->assign( 'expiry', 		comWeeverHelper::getExpiry() );
+		$this->assign( 'weeverMainTitlebarColor', 		comWeeverHelper::getWeeverMainTitlebarColor() );
+		$this->assign( 'weeverMainTitlebarTextColor', 		comWeeverHelper::getWeeverMainTitlebarTextColor() );
+		$this->assign( 'weeverSubtabColor', 		comWeeverHelper::getWeeverSubtabColor() );
+		$this->assign( 'weeverSubtabTextColor', 		comWeeverHelper::getWeeverSubtabTextColor() );
+		
+		
+		$ajaxUrl = JURI::base().'index.php?option=com_weever';
+		
+		$this->assign( 'ajaxUrl', 		$ajaxUrl );
 		
 		$this->assign( 'contentCategories', 	$contentCategories );
 		$this->assign( 'contentArticles', 	$contentArticles );
@@ -63,7 +73,7 @@ class WeeverViewBackbone extends JViewLegacy
 		$this->assign( 'k2Categories', 	$k2Categories );
 		$this->assign( 'k2Items', 	$k2Items );
 		
-		//var_dump($this->appEnabled);
+		//var_dump($this->expiry);
 		//var_dump($this->appKey);
 		//var_dump($this->siteDomain);
 		//var_dump($this->deviceSettings);
@@ -90,6 +100,7 @@ class WeeverViewBackbone extends JViewLegacy
 		
 		$content = "
 		    var wx = wx || {};
+		    wx.ajaxUrl = '".$ajaxUrl."';
 		    wx.siteDomain = '".$siteDomain."';
 		    wx.pluginUrl = '".$pluginUrl."';
 		    wx.navIconDir = '".$navIconDir."';
@@ -113,68 +124,35 @@ class WeeverViewBackbone extends JViewLegacy
 		
 		$document->addScript( 'http://code.jquery.com/jquery-migrate-1.2.1.min.js' );
 		
-		$document->addScript( JURI::base(). 'components/com_weever/static/js/vendor/jquery-ui.custom.min.js' );
+		$document->addScript( 'components/com_weever/static/js/vendor/jquery-ui.custom.min.js' );
 		
-		$document->addScript( JURI::base(). 'components/com_weever/static/js/vendor/jquery.iframe-transport.js' );
+		$document->addScript( 'components/com_weever/static/js/vendor/underscore.min.js' );
 		
-		$document->addScript( JURI::base(). 'components/com_weever/static/js/vendor/underscore.min.js' );
+		$document->addScript( 'components/com_weever/static/js/vendor/backbone.min.js' );
 		
-		$document->addScript( JURI::base(). 'components/com_weever/static/js/vendor/backbone.min.js' );
+		$document->addScript( 'components/com_weever/static/js/vendor/jquery.iframe-transport.js' );
 		
-		$document->addScript( JURI::base(). 'components/com_weever/static/js/weever.js' );
+		$document->addScript( 'components/com_weever/static/js/weever.js' );
 		
-		$document->addScript( JURI::base(). 'components/com_weever/static/js/vendor/custom.modernizr.js' );
+		$document->addScript( 'components/com_weever/static/js/vendor/custom.modernizr.js' );
 		
-		$document->addScript( JURI::base(). 'components/com_weever/static/js/foundation/foundation.js' );
+		$document->addScript( 'components/com_weever/static/js/foundation/foundation.js' );
 		
 		$foundation_files = array( 'foundation.abide.js', 'foundation.alerts.js', 'foundation.clearing.js', 'foundation.cookie.js', 'foundation.dropdown.js', 'foundation.forms.js', 'foundation.interchange.js', 'foundation.joyride.js', 'foundation.magellan.js', 'foundation.orbit.js', 'foundation.placeholder.js', 'foundation.reveal.js', 'foundation.section.js', 'foundation.tooltips.js', 'foundation.topbar.js' );
 		
 		foreach ($foundation_files as $f_file) {
-		        $document->addScript( JURI::base(). 'components/com_weever/static/js/foundation/'.$f_file );
+		        $document->addScript( 'components/com_weever/static/js/foundation/'.$f_file );
 		}
 		
-		$document->addScript( JURI::base(). 'components/com_weever/static/js/account.js' );
+		$document->addScript( 'components/com_weever/static/js/account.js' );
 		
-		$document->addScript( JURI::base(). 'components/com_weever/static/js/jq.list.js' );
+		$document->addScript( 'components/com_weever/static/js/jq.list.js' );
 		
-		$document->addScript( JURI::base(). 'components/com_weever/static/js/fileuploader.js' );
+		//$document->addScript( 'components/com_weever/static/js/fileuploader.js' );
 		
-		//$document->addScript( JURI::base(). 'components/com_weever/static/js/theme.js' );
+		//$document->addScript( 'components/com_weever/static/js/theme.js' );
 		
-		$document->addScript( JURI::base(). 'components/com_weever/static/js/jquery.imgareaselect.min.js' );
-		
-		
-		/****joomla addCustomTag*****/
-		$document->addCustomTag (
-			'<script src="'.JURI::base(). 'components/com_weever/static/js/jscolor/jscolor.js" type="text/javascript"></script>');
-		
-		$document->addCustomTag (
-			'<script src="'.JURI::base(). 'components/com_weever/static/js/list.js" type="text/javascript"></script>');
-		
-		//models	
-		$pre_loaded_models = array( 'formbuilder.control.js', 'formbuilder.control.input.js', 'tab.js', 'subtab.js' );
-		foreach ($pre_loaded_models as $pre_loaded_model) {
-		     $document->addCustomTag( '<script src="'.JURI::base(). 'components/com_weever/static/js/models/'.$pre_loaded_model. '" type="text/javascript"></script>' ); 
-		}
-		
-		foreach( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/models/*.js' ) as $model_js_file ) {
-		     $document->addCustomTag( '<script src="'.JURI::base(). 'components/com_weever/static/js/models/'.basename($model_js_file). '" type="text/javascript"></script>' ); 
-		}	
-		
-		//collections
-		foreach( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/collections/*.js' ) as $collection_js_file ) {
-		     $document->addCustomTag( '<script src="'.JURI::base(). 'components/com_weever/static/js/collections/'.basename($collection_js_file). '" type="text/javascript"></script>' );  
-		}
-		
-		//views
-		$pre_loaded_views = array( 'formbuilder.control.js', 'tab.js', 'subtab.edit.js', 'style.js' );
-		foreach ( $pre_loaded_views as $pre_loaded_view ) {
-		     $document->addCustomTag( '<script src="'.JURI::base(). 'components/com_weever/static/js/views/'.$pre_loaded_view.'" type="text/javascript"></script>' ); 
-		}	
-			
-		foreach( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/views/*.js' ) as $view_js_file ) {
-		     $document->addCustomTag( '<script src="'.JURI::base(). 'components/com_weever/static/js/views/'.basename($view_js_file). '" type="text/javascript"></script>' );  
-		}
+		$document->addScript( 'components/com_weever/static/js/jquery.imgareaselect.min.js' );
 		
 		echo $this->loadTemplate('js');
 		

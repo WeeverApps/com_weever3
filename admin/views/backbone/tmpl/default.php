@@ -23,9 +23,11 @@
 defined('_JEXEC') or die;
 ?>
 
-<link rel="stylesheet" href="<?php echo JURI::base(); ?>components/com_weever/static/css_joomla/app.css" type="text/css" />
+<link rel="stylesheet" href="components/com_weever/static/css_joomla/app.css" type="text/css" />
 
-<link rel="stylesheet" href="<?php echo JURI::base(); ?>components/com_weever/static/css/weever-icon-font-1.css" type="text/css" />
+<link rel="stylesheet" href="components/com_weever/static/css/weever-icon-font-1.css" type="text/css" />
+
+<link rel="stylesheet" href="components/com_weever/static/css/imgareaselect-default.css" type="text/css" />
 
 <!-- insert HTML here -->
 
@@ -129,7 +131,6 @@ defined('_JEXEC') or die;
                     <!-- endof: development iframe -->
                     <!-- start: production iframe -->
                     <!-- -->
-                    <?php //if ( ! isset( $tab_found ) or $tab_found ): ?>
                         <div id="preview-app-dialog-webkit" style="">
                             <iframe id="preview-app-dialog-frame" rel="<?php echo
                             ( comWeeverConst::LIVE_SERVER .'app/'. $this->siteDomain );//echo esc_url( WeeverConst::LIVE_SERVER . 'app/' . $weeverapp->primary_domain ); ?>?simphone=1&cache_manifest=false" height="568" width="320" frameborder="0" scrolling="no" name="iframe-preview" seamless></iframe>
@@ -148,13 +149,6 @@ defined('_JEXEC') or die;
                                 </div>
                             </div>
                         </div>
-                    <?php //else: ?>
-                        <div id="preview-app-dialog-no-tabs-welcome">
-                            <p>Welcome to appBuilder.  A preview of your app will appear here as soon as you add content.</p>
-                        </div>
-                    <?php //endif; ?>
-                    <!-- -->
-                    <!-- endof: production iframe -->
                 </div>
             </div>
         </div>
@@ -261,10 +255,7 @@ defined('_JEXEC') or die;
 
         jQuery(document).foundation();
         doPoll();
-
-        <?php if ( isset( $_GET['page'] ) and basename( $_GET['page'] ) == 'weever-account' ) { ?>
-        jQuery('#wx-account').foundation('reveal', 'open');
-        <?php } ?>
+        
     } );
 
     var buildNum = '';
@@ -274,7 +265,9 @@ defined('_JEXEC') or die;
     
     function doPoll() {
         if ( wx.poll ) {
+            console.log('Poll...')
             wx.getText('_metadata/get_build_version', function(data) {
+                console.log(data);
                 if (data != buildNum) {
                     buildNum = data;
                     console.log( 'New build: ' + buildNum );
@@ -295,9 +288,57 @@ defined('_JEXEC') or die;
 <input type="hidden" id="nonce" name="nonce" value="<?php //echo wp_create_nonce( 'weever-list-js' ); ?>" />
 <input type="hidden" name="site_key" id="wx-site-key" value="<?php echo $this->appKey; ?>" />
 
+
+<script src="components/com_weever/static/js/jscolor/jscolor.js" type="text/javascript"></script>
+<script src="components/com_weever/static/js/list.js" type="text/javascript"></script>
+
 <?php 
 
+if (!defined('PHP_EOL')) {
+    switch (strtoupper(substr(PHP_OS, 0, 3))) {
+        // Windows
+        case 'WIN':
+            define('PHP_EOL', "\r\n");
+            break;
 
+        // Mac
+        case 'DAR':
+            define('PHP_EOL', "\r");
+            break;
+
+        // Unix
+        default:
+            define('PHP_EOL', "\n");
+    }
+}
+
+
+//models	
+$pre_loaded_models = array( 'formbuilder.control.js', 'formbuilder.control.input.js', 'tab.js', 'subtab.js' );
+foreach ($pre_loaded_models as $pre_loaded_model) {
+     echo( '<script src="components/com_weever/static/js/models/'.$pre_loaded_model. '" type="text/javascript"></script>'.PHP_EOL );
+}
+
+foreach( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/models/*.js' ) as $model_js_file ) {
+     echo( '<script src="components/com_weever/static/js/models/'.basename($model_js_file). '" type="text/javascript"></script>'.PHP_EOL ); 
+}
+
+//collections
+foreach( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/collections/*.js' ) as $collection_js_file ) {
+     echo( '<script src="components/com_weever/static/js/collections/'.basename($collection_js_file). '" type="text/javascript"></script>'.PHP_EOL );  
+}
+
+//views
+$pre_loaded_views = array( 'formbuilder.control.js', 'tab.js', 'subtab.edit.js', 'style.js' );
+foreach ( $pre_loaded_views as $pre_loaded_view ) {
+     echo( '<script src="components/com_weever/static/js/views/'.$pre_loaded_view.'" type="text/javascript"></script>'.PHP_EOL ); 
+}	
+	
+foreach( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/views/*.js' ) as $view_js_file ) {
+
+	
+     echo( '<script src="components/com_weever/static/js/views/'.basename($view_js_file). '" type="text/javascript"></script>'.PHP_EOL );  
+}
 
 foreach ( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/spec/fixtures/*.html' ) as $backbone_template_file ) {
 	
@@ -308,14 +349,4 @@ foreach ( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/spec/fixtures/*.html'
 	
 }
 
-
-//var_dump(JURI::base(). 'components/com_weever/static/js/spec/fixtures/'.basename($backbone_template_file));
-	//die();
-	
-	//var_dump(JURI::base(). 'components/com_weever/static/js/spec/fixtures/advanced.tpl.html');
-	//die();
-	//include( JURI::base(). 'components/com_weever/static/js/spec/fixtures/advanced.tpl.html');
-	//die();
-
-
-
+?>
