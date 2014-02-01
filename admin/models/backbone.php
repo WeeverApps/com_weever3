@@ -76,6 +76,28 @@ class WeeverModelBackbone extends JModelLegacy
 		$row->load(5);
 		$row->setting = $devices;
 		$row->store();
+		
+		echo('{"success":true}');
+		die();
+	
+	}
+	
+	public function save_appEnabled()
+	{
+		
+		$row 	=& JTable::getInstance( 'WeeverConfig', 'Table' );
+		
+		if( JRequest::getVar('app_enabled') ) {
+		
+			$appEnabled = JRequest::getVar('app_enabled');
+		}
+		
+		$row->load(6);
+		$row->setting = $appEnabled;
+		$row->store();
+		
+		echo('{"success":true}');
+		die();
 	
 	}
 	
@@ -109,6 +131,9 @@ class WeeverModelBackbone extends JModelLegacy
 			$row->store();
 			
 		}
+		
+		echo('{"success":true}');
+		die();
 	
 	}
 	

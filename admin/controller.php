@@ -102,5 +102,18 @@ class WeeverController extends JControllerLegacy
 	
 	}
 	
+	public function save_appEnabled()
+	{
+		
+		$model  = $this->getModel('backbone');
+		               
+		$model->save_appEnabled();
+		
+		//$this->setRedirect('index.php?option=com_weever',JText::_('WEEVER_ACCOUNT_SAVED'));
+			
+		//return;
+	
+	}
+	
 
 }
