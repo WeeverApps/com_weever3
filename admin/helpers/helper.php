@@ -240,20 +240,25 @@ class comWeeverHelper
 		
 		$api_endpoint 		= "account/get_account";
 		$remote_url 		= comWeeverConst::LIVE_SERVER . comWeeverConst::API_VERSION . $api_endpoint;
-		$stage_url 			= '';
+		//$stage_url 			= '';
 		$remote_query 		= array( 	
 		
 			'app_key' 		=> $site_key
 		
 		);
 		
+		/*
 		if( comWeeverHelper::getStageStatus() )
 			$remote_url = comWeeverConst::LIVE_STAGE . comWeeverConst::API_VERSION . $api_endpoint;
-	
+		*/
+		
 		$postdata 	= comWeeverHelper::buildWeeverHttpQuery($remote_query);
 		$response	= comWeeverHelper::sendToWeeverServer($postdata, $remote_url);
 		
 		$json		= json_decode( $response );
+		
+		//var_dump($json);
+		//die();
 		
 		$row 		= JTable::getInstance('WeeverConfig', 'Table');
 		
@@ -263,6 +268,29 @@ class comWeeverHelper
 		$row->setting = rtrim( str_replace( "http://", "", $row->setting ), "/" );
 		
 		$row->store();
+		
+		
+		$row->load(101);
+		$row->setting = $json->account->tier_raw;
+		$row->store();
+		
+		$row->load(102);
+		$row->setting = $json->account->expiry;
+		$row->store();
+		
+		//this is for setting default install icon
+		$api_endpoint 		= "design/set_install";
+		$remote_url 		= comWeeverConst::LIVE_SERVER . comWeeverConst::API_VERSION . $api_endpoint;
+		//$stage_url 			= '';
+		$remote_query 		= array( 	
+		
+			'app_key' 		=> $site_key,
+			'install'		=> "{\"name\":\"\",\"icon\":\"http://".comWeeverHelper::getSiteDomain(). "/media/com_weever/icon_.png\",\"prompt\":\"0\"}"
+		
+		);
+		
+		$postdata 	= comWeeverHelper::buildWeeverHttpQuery($remote_query);
+		$response	= comWeeverHelper::sendToWeeverServer($postdata, $remote_url);
 
 	}	
 	

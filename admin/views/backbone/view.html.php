@@ -95,8 +95,8 @@ class WeeverViewBackbone extends JViewLegacy
 		$baseExtensionUrl 	= JURI::base().'index.php?option=com_weever';
 		$siteKey			= $this->appKey;
 		$apiUrl 			= comWeeverConst::LIVE_SERVER . comWeeverConst::API_VERSION;
-		$uploadPath			= JPATH_SITE.'/images';
-		$uploadUrl			= JURI::base().'images';
+		$uploadPath			= JPATH_SITE.'/media/com_weever';
+		$uploadUrl			= $siteDomain.'media/com_weever';
 		
 		$content = "
 		    var wx = wx || {};
