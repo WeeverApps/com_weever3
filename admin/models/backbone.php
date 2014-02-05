@@ -68,9 +68,14 @@ class WeeverModelBackbone extends JModelLegacy
 		
 		$row 	=& JTable::getInstance( 'WeeverConfig', 'Table' );
 		
-		if( JRequest::getVar('tablets_enabled') ) {
+		if( JRequest::getVar('tablets_enabled') == 1 ) {
 		
 			$devices = "DetectTierWeeverSmartphones,DetectTierWeeverTablets";
+		}
+		
+		if( JRequest::getVar('tablets_enabled') == 0 ) {
+		
+			$devices = "DetectTierWeeverSmartphones";
 		}
 		
 		$row->load(5);
