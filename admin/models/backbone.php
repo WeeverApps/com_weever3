@@ -220,18 +220,34 @@ class WeeverModelBackbone extends JModelLegacy
     public function getK2Categories()
     {
      
-   		$query = "SELECT * FROM #__k2_categories WHERE published = '1' AND access < '2'";  
+   		if( comWeeverHelper::componentExists('com_k2') ) {
+   		
+   			$query = "SELECT * FROM #__k2_categories WHERE published = '1' AND access < '2'";  
 
-        return $this->_getList($query);                
+       		return $this->_getList($query);  
+        
+        } else {
+        
+        	return array();
+        	
+        }         
 
     }
     
     public function getK2Items()
     {
      
-   		$query = "SELECT *, title AS name FROM #__k2_items WHERE published = '1' AND access < '2'";  
-
-        return $this->_getList($query);                
+		if( comWeeverHelper::componentExists('com_k2') ) {
+		   		
+   			$query = "SELECT *, title AS name FROM #__k2_items WHERE published = '1' AND access < '2'";  
+   			
+   			return $this->_getList($query);   
+        
+        } else {
+        
+        	return array();
+        	
+        }               
 
     }
     
