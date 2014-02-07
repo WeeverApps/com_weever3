@@ -10,11 +10,14 @@
         </div>
 
         <!-- start: subscription key form -->
-        <form action="" method="post">
+        <form action="<?php echo $this->ajaxUrl; ?>" method="post">
 
             <div class="row">
                 <div class="large-12 columns">
                     <input <?php if ( ! $this->appKey ) echo 'class="error"'; ?> type="text" name="site_key" value="<?php echo $this->appKey; ?>" />
+                    
+                    <input type="hidden" name="task" value="save_appKey" />
+                    
                     <br>
                     <div class="wx-inputContainer" id="save-button">
                         <button id="wx-button-submit" class="success radius" name="submit" type="submit" value="Save Changes">Save app subscription key</button>
@@ -31,7 +34,7 @@
                 <div class="large-12 columns">
                     <?php if ( $this->siteDomain ): ?>
                         <p class="lead">
-                            <?php //echo sprintf( __( 'Your current app building key is linked to the web address: %s', 'weever' ), $this->siteDomain ); ?>
+                            <?php echo sprintf('Your current app building key is linked to the web address: %s', $this->siteDomain ); ?>
                         </p>
                     <?php endif; ?>
                 </div>
@@ -52,6 +55,19 @@
                     <p class=""><b>Your subscription</b></p>
 
                     <p>Current status:&nbsp;
+                    	<?php if ( $this->appKey ) { ?>
+                    	
+                                <?php if ( $this->expiry and strtotime( $this->expiry ) !== false and strtotime( $this->expiry ) <= time() ) { ?>
+
+                                    <b>Expired</b>
+
+                            <?php } else { ?>
+
+                                    <b>Active</b>
+
+                            <?php } ?>
+
+                        <?php } ?>
                     
                     <p><a target="_blank" href="http://weeverapps.com/pricing">View plans and pricing</a></p>
 
