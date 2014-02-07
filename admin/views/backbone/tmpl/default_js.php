@@ -118,6 +118,16 @@ $document->addCustomTag ('<script type="text/javascript">
 					
                 }
                 
+                function jSelectArticle_jform_request_id(id, title, catid, object) {
+                	
+                	jQuery(\'#wx-edit-title-JoomlaArticle\').val(title);
+                	jQuery(\'#wx-add-joomla-article-select\').val(\'index.php?option=com_content&view=article&id=\' + id + \'&template=weever_cartographer\');
+                	$("#select-joomla-article").foundation("reveal", "close");
+                	
+                	$("#wx-edit-area-JoomlaArticle").foundation("reveal", "open");
+                	
+                }
+                
                 jQuery( document ).ready( function() {
                 
                 	'.$js_swipe_page.'
