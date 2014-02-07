@@ -6,10 +6,10 @@
 	<author>Aaron Song, Robert Gerald Porter, Matt Grande, Andrew Holden</author>
 	<authorEmail>support@weeverapps.com</authorEmail>
 	<authorUrl>http://www.weeverapps.com/</authorUrl>
-	<copyright>(c) 2010-2013 Weever Apps Inc.</copyright>
+	<copyright>(c) 2010-2014 Weever Apps Inc.</copyright>
 	<license>GPLv3</license>
 	<version>3.0.0</version>
-	<releaseType>Beta</releaseType>
+	<releaseType>Stable</releaseType>
 	<description>COM_WEEVER_DESCRIPTION</description>
 	
 	<scriptfile>install.weever.php</scriptfile>
@@ -62,11 +62,5 @@
 		<filename>icon_.png</filename>
 		<filename>titlebar_logo_.png</filename>
 	</media>
-
-	<updateservers>
-	
-		<server type="collection">http://weeverapps.com/download_files/weever_appbuilder.xml</server>
-		
-	</updateservers>
 	 
 </extension>
