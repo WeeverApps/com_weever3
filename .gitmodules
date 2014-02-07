@@ -1,0 +1,3 @@
+[submodule "admin/static"]
+	path = admin/static
+	url = git@github.com:WeeverApps/weever-plugin-common.git
