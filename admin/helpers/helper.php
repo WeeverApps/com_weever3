@@ -291,6 +291,34 @@ class comWeeverHelper
 		
 		$postdata 	= comWeeverHelper::buildWeeverHttpQuery($remote_query);
 		$response	= comWeeverHelper::sendToWeeverServer($postdata, $remote_url);
+		
+		//this is for setting default titlebar logo
+		$api_endpoint 		= "design/set_titlebar";
+		$remote_url 		= comWeeverConst::LIVE_SERVER . comWeeverConst::API_VERSION . $api_endpoint;
+		//$stage_url 			= '';
+		$remote_query 		= array( 	
+		
+			'app_key' 		=> $site_key,
+			'titlebar'		=> "{\"text\":\"\",\"image\":\"http://".comWeeverHelper::getSiteDomain(). "/media/com_weever/titlebar_logo_.png\",\"type\":\"image\"}"
+		
+		);
+		
+		$postdata 	= comWeeverHelper::buildWeeverHttpQuery($remote_query);
+		$response	= comWeeverHelper::sendToWeeverServer($postdata, $remote_url);
+		
+		//this is for setting default launch screens
+		$api_endpoint 		= "design/set_launchscreen";
+		$remote_url 		= comWeeverConst::LIVE_SERVER . comWeeverConst::API_VERSION . $api_endpoint;
+		//$stage_url 			= '';
+		$remote_query 		= array( 	
+		
+			'app_key' 		=> $site_key,
+			'launchscreen'		=> "{\"phone\":\"http://".comWeeverHelper::getSiteDomain(). "/media/com_weever/phone_load_.png\",\"tablet\":\"http://".comWeeverHelper::getSiteDomain(). "/media/com_weever/tablet_load_.png\",\"tablet_landscape\":\"http://".comWeeverHelper::getSiteDomain(). "/media/com_weever/tablet_landscape_load_.png\"}"
+		
+		);
+		
+		$postdata 	= comWeeverHelper::buildWeeverHttpQuery($remote_query);
+		$response	= comWeeverHelper::sendToWeeverServer($postdata, $remote_url);
 
 	}	
 	
