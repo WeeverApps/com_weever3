@@ -52,9 +52,9 @@ $document->addCustomTag ('<script type="text/javascript">
                    
                    jQuery(\'#wx-edit-title-K2Item\').val(title);
                    jQuery(\'#wx-add-k2-item-select\').val(\'index.php?option=com_k2&view=item&id=\' + id + \'&template=weever_cartographer\');
-                   $("#select-k2-item").foundation("reveal", "close");
+                   jQuery("#select-k2-item").foundation("reveal", "close");
                    
-                   $("#wx-edit-area-K2Item").foundation("reveal", "open");
+                   jQuery("#wx-edit-area-K2Item").foundation("reveal", "open");
                        
                 }
 				
@@ -70,9 +70,9 @@ $document->addCustomTag ('<script type="text/javascript">
                    
                    jQuery(\'#wx-edit-title-K2Category\').val(title);
                    jQuery(\'#wx-add-k2-category-select\').val(\'index.php?option=com_k2&view=itemlist&layout=category&task=category&template=weever_cartographer&id=\' + id);
-                   $("#select-k2-category").foundation("reveal", "close");
+                   jQuery("#select-k2-category").foundation("reveal", "close");
                    
-                   $("#wx-edit-area-K2Category").foundation("reveal", "open");
+                   jQuery("#wx-edit-area-K2Category").foundation("reveal", "open");
                        
                 }
 				
@@ -112,9 +112,9 @@ $document->addCustomTag ('<script type="text/javascript">
 					
 					jQuery(\'#wx-edit-title-JoomlaArticle\').val(title);
 					jQuery(\'#wx-add-joomla-article-select\').val(\'index.php?option=com_content&view=article&id=\' + id + \'&template=weever_cartographer\');
-					$("#select-joomla-article").foundation("reveal", "close");
+					jQuery("#select-joomla-article").foundation("reveal", "close");
 					
-					$("#wx-edit-area-JoomlaArticle").foundation("reveal", "open");
+					jQuery("#wx-edit-area-JoomlaArticle").foundation("reveal", "open");
 					
                 }
                 
@@ -122,9 +122,9 @@ $document->addCustomTag ('<script type="text/javascript">
                 	
                 	jQuery(\'#wx-edit-title-JoomlaArticle\').val(title);
                 	jQuery(\'#wx-add-joomla-article-select\').val(\'index.php?option=com_content&view=article&id=\' + id + \'&template=weever_cartographer\');
-                	$("#select-joomla-article").foundation("reveal", "close");
+                	jQuery("#select-joomla-article").foundation("reveal", "close");
                 	
-                	$("#wx-edit-area-JoomlaArticle").foundation("reveal", "open");
+                	jQuery("#wx-edit-area-JoomlaArticle").foundation("reveal", "open");
                 	
                 }
                 

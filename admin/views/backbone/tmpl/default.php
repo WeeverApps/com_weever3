@@ -5,7 +5,7 @@
 *
 *	Authors: 	Robert Gerald Porter 	<rob@weeverapps.com>
 *				Aaron Song 				<aaron@weeverapps.com>
-*	Version: 	3.0.0 Beta 1
+*	Version: 	3.0.0
 *   License: 	GPL v3.0
 *
 *   This extension is free software: you can redistribute it and/or modify
@@ -39,7 +39,7 @@ defined('_JEXEC') or die;
 <nav class="top-bar" style="">
     <ul class="title-area">
         <!-- Title Area -->
-        <li class="name"><h1>appBuilder for Wordpress</h1></li>
+        <li class="name"><h1>appBuilder for Joomla</h1></li>
         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "menu" to just have icon alone -->
         <li class="toggle-topbar menu-icon"><a href=""><span>Menu</span></a></li>
     </ul>
@@ -225,7 +225,7 @@ defined('_JEXEC') or die;
                 <a href="http://weeverapps.com/newsletter/">Newsletter</a>
                 <a href="http://weeverapps.com/contact/">Contact</a>
             </div>
-            <p class="copyright">&copy; 2011 - 2013 Weever Apps Inc. All rights reserved.</p>
+            <p class="copyright"><?php echo comWeeverConst::NAME; ?> v<?php echo comWeeverConst::VERSION; ?> "<?php echo comWeeverConst::RELEASE_NAME; ?>" <br>&copy; <?php echo comWeeverConst::COPYRIGHT_YEAR; ?> <?php echo comWeeverConst::COPYRIGHT; ?> All rights reserved.</p>
         </div>
     </div>
 </div>

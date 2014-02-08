@@ -5,7 +5,7 @@
 *
 *	Authors: 	Robert Gerald Porter 	<rob@weeverapps.com>
 *				Aaron Song 				<aaron@weeverapps.com>
-*	Version: 	3.0.0 Beta 1
+*	Version: 	3.0.0
 *   License: 	GPL v3.0
 *
 *   This extension is free software: you can redistribute it and/or modify
@@ -30,15 +30,15 @@ final class comWeeverConst
 {
 
 	const VERSION			= "3.0.0";
-	const RELEASE_TYPE		= "Beta Release 1";
-	const RELEASE_NAME		= "TBD";
-	const NAME				= "Weever appBuilder&trade; for Joomla!";
-	const COPYRIGHT_YEAR	= "(c) 2010-2013";
+	const RELEASE_TYPE		= "release";
+	const RELEASE_NAME		= "Bay of Fundy";
+	const NAME				= "appBuilder for Joomla!";
+	const COPYRIGHT_YEAR	= "(c) 2010-2014";
 	const COPYRIGHT			= "Weever Apps Inc.";
 	const COPYRIGHT_URL		= "http://www.weeverapps.com/";
 	const LICENSE			= "GPL v3.0";
 	const LICENSE_URL		= "http://www.gnu.org/licenses/gpl-3.0.html";
-	const RELEASE_DATE		= "May 7, 2013";
+	const RELEASE_DATE		= "February 8, 2014";
 	const SUPPORT_WEB		= "http://support.weeverapps.com/";
 	const LIVE_SERVER		= "http://weeverapp.com/";
 	const API_VERSION		= "api/v2/";

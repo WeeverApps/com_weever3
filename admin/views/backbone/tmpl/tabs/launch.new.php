@@ -55,7 +55,7 @@
 
 	<!-- App Stores -->
 	<section>
-		<p class="title" data-section-title><a href="#"><?php echo 'submit to app stores', 'weever';//echo __( 'submit to app stores', 'weever' ); ?></a></p>
+		<p class="title" data-section-title><a href="#"><?php echo 'submit to app stores'//, 'weever';echo __( 'submit to app stores', 'weever' ); ?></a></p>
 		<div class="content" data-section-content>
 
 			<p class="wx-ui-title">Publish to app stores <span class="label secondary"><?php echo 'add-on service';//echo __( 'add-on service', 'weever' ); ?></span></p>
