@@ -28,51 +28,41 @@ JTable::addIncludePath( JPATH_COMPONENT.DS.'tables' );
 
 require_once (JPATH_COMPONENT.DS.'helpers'.DS.'helper'.'.php');
 
-if( !class_exists("JControllerLegacy") ) 
-{
+if( !class_exists("JControllerLegacy") ) {
 
 	class JControllerLegacy extends JController{};
 	
 }
 
-class WeeverController extends JControllerLegacy
-{
+class WeeverController extends JControllerLegacy {
 	
-	public function upload()
-	{
+	public function upload() {
 		
 		
 		jexit();
 	
 	}
 	
-	
-	public function display( $tpl = null )
-	{
+	public function display( $tplOrCacheable = null, $urlparams = null ) {
 	
 		$view = JRequest::getVar('view');
 		
 		if(!$view)
-		{
 			JRequest::setVar('view','backbone');
-		}
 		
 		parent::display();
 	
 	}
 	
-	public function save_config()
-	{
+	public function save_config() {
 		
 		$model  = $this->getModel('backbone');
 		               
 		$model->setTier();
 		
-	
 	}
 	
-	public function save_device()
-	{
+	public function save_device() {
 		
 		$model  = $this->getModel('backbone');
 		               
@@ -80,8 +70,7 @@ class WeeverController extends JControllerLegacy
 	
 	}
 	
-	public function save_logo_color()
-	{
+	public function save_logo_color() {
 		
 		$model  = $this->getModel('backbone');
 		               
@@ -89,8 +78,7 @@ class WeeverController extends JControllerLegacy
 	
 	}
 	
-	public function save_appKey()
-	{
+	public function save_appKey() {
 		
 		$model  = $this->getModel('backbone');
 		               
@@ -102,16 +90,11 @@ class WeeverController extends JControllerLegacy
 	
 	}
 	
-	public function save_appEnabled()
-	{
+	public function save_appEnabled() {
 		
 		$model  = $this->getModel('backbone');
 		               
 		$model->save_appEnabled();
-		
-		//$this->setRedirect('index.php?option=com_weever',JText::_('WEEVER_ACCOUNT_SAVED'));
-			
-		//return;
 	
 	}
 	

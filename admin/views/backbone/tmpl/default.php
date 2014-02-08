@@ -23,6 +23,8 @@
 defined('_JEXEC') or die;
 ?>
 
+<link rel="stylesheet" href="components/com_weever/assets/css/weever.css" type="text/css" />
+
 <link rel="stylesheet" href="components/com_weever/static/css_joomla/app.css" type="text/css" />
 
 <link rel="stylesheet" href="components/com_weever/static/css/weever-icon-font-1.css" type="text/css" />
@@ -225,7 +227,7 @@ defined('_JEXEC') or die;
                 <a href="http://weeverapps.com/newsletter/">Newsletter</a>
                 <a href="http://weeverapps.com/contact/">Contact</a>
             </div>
-            <p class="copyright"><?php echo comWeeverConst::NAME; ?> v<?php echo comWeeverConst::VERSION; ?> "<?php echo comWeeverConst::RELEASE_NAME; ?>" <br>&copy; <?php echo comWeeverConst::COPYRIGHT_YEAR; ?> <?php echo comWeeverConst::COPYRIGHT; ?> All rights reserved.</p>
+            <p class="copyright"><?php echo comWeeverConst::NAME; ?> v<?php echo comWeeverConst::VERSION; ?> "<?php echo comWeeverConst::RELEASE_NAME; ?>" <br><?php echo comWeeverConst::COPYRIGHT_YEAR; ?> <?php echo comWeeverConst::COPYRIGHT; ?> All rights reserved.</p>
         </div>
     </div>
 </div>

@@ -33,7 +33,7 @@ final class comWeeverConst
 	const RELEASE_TYPE		= "release";
 	const RELEASE_NAME		= "Bay of Fundy";
 	const NAME				= "appBuilder for Joomla!";
-	const COPYRIGHT_YEAR	= "(c) 2010-2014";
+	const COPYRIGHT_YEAR	= "&copy; 2010-2014";
 	const COPYRIGHT			= "Weever Apps Inc.";
 	const COPYRIGHT_URL		= "http://www.weeverapps.com/";
 	const LICENSE			= "GPL v3.0";

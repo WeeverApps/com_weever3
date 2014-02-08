@@ -20,3 +20,9 @@
 */
 
 /*This class can be set not to display for testing purposes */
+
+#toolbar-box {
+
+display:none;
+
+}
