@@ -319,6 +319,20 @@ class comWeeverHelper
 		
 		$postdata 	= comWeeverHelper::buildWeeverHttpQuery($remote_query);
 		$response	= comWeeverHelper::sendToWeeverServer($postdata, $remote_url);
+		
+		//this is for setting offline
+		$api_endpoint 		= "config/set_online";
+		$remote_url 		= comWeeverConst::LIVE_SERVER . comWeeverConst::API_VERSION . $api_endpoint;
+		//$stage_url 			= '';
+		$remote_query 		= array( 	
+		
+			'app_key' 		=> $site_key,
+			'online' 		=> 0
+		
+		);
+		
+		$postdata 	= comWeeverHelper::buildWeeverHttpQuery($remote_query);
+		$response	= comWeeverHelper::sendToWeeverServer($postdata, $remote_url);
 
 	}	
 	
@@ -612,11 +626,7 @@ class comWeeverHelper
 			
 			$joomla 				= comWeeverHelper::joomlaVersion();
 			
-			if(substr($joomla,0,3) == '1.5')
-				$json->image = "images/stories/".$contact->image;
-				
-			else 
-				$json->image = $contact->image;
+			$json->image = $contact->image;
 				
 			$json->misc 	= $contact->misc;
 			
