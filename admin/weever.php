@@ -75,7 +75,7 @@ if((ini_get('allow_url_fopen') != 1) && (!in_array('curl', get_loaded_extensions
 	//JError::raiseNotice(100, JText::_('WEEVER_ERROR_PLUGIN_DISABLED'));
 	
 # Zeroes out the title in favour of the logo
-JToolBarHelper::title( '&nbsp;', $weeverIcon);
+//JToolBarHelper::title( '&nbsp;', $weeverIcon);
 
 /* Load up our controller */
 

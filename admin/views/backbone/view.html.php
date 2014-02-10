@@ -128,37 +128,37 @@ class WeeverViewBackbone extends JViewLegacy
 		/***** joomla addscript will run first before addCustomTag***/
 		//$document->addScript( 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' );
 		
-		$document->addScript( 'http://code.jquery.com/jquery-migrate-1.2.1.min.js' );
+		$document->addScript( 'http://code.jquery.com/jquery-migrate-1.2.1.min.js?_dc=' . time() );
 		
-		$document->addScript( 'components/com_weever/static/js/vendor/jquery-ui.custom.min.js' );
+		$document->addScript( 'components/com_weever/static/js/vendor/jquery-ui.custom.min.js?_dc=' . time() );
 		
-		$document->addScript( 'components/com_weever/static/js/vendor/underscore.min.js' );
+		$document->addScript( 'components/com_weever/static/js/vendor/underscore.min.js?_dc=' . time() );
 		
-		$document->addScript( 'components/com_weever/static/js/vendor/backbone.min.js' );
+		$document->addScript( 'components/com_weever/static/js/vendor/backbone.min.js?_dc=' . time() );
 		
-		$document->addScript( 'components/com_weever/static/js/vendor/jquery.iframe-transport.js' );
+		$document->addScript( 'components/com_weever/static/js/vendor/jquery.iframe-transport.js?_dc=' . time() );
 		
-		$document->addScript( 'components/com_weever/static/js/weever.js' );
+		$document->addScript( 'components/com_weever/static/js/weever.js?_dc=' . time() );
 		
-		$document->addScript( 'components/com_weever/static/js/vendor/custom.modernizr.js' );
+		$document->addScript( 'components/com_weever/static/js/vendor/custom.modernizr.js?_dc=' . time() );
 		
-		$document->addScript( 'components/com_weever/static/js/foundation/foundation.js' );
+		$document->addScript( 'components/com_weever/static/js/foundation/foundation.js?_dc=' . time() );
 		
 		$foundation_files = array( 'foundation.abide.js', 'foundation.alerts.js', 'foundation.clearing.js', 'foundation.cookie.js', 'foundation.dropdown.js', 'foundation.forms.js', 'foundation.interchange.js', 'foundation.joyride.js', 'foundation.magellan.js', 'foundation.orbit.js', 'foundation.placeholder.js', 'foundation.reveal.js', 'foundation.section.js', 'foundation.tooltips.js', 'foundation.topbar.js' );
 		
 		foreach ($foundation_files as $f_file) {
-		        $document->addScript( 'components/com_weever/static/js/foundation/'.$f_file );
+		        $document->addScript( 'components/com_weever/static/js/foundation/' . $f_file . '?_dc=' . time() );
 		}
 		
-		$document->addScript( 'components/com_weever/static/js/account.js' );
+		$document->addScript( 'components/com_weever/static/js/account.js?_dc=' . time() );
 		
-		$document->addScript( 'components/com_weever/static/js/jq.list.js' );
+		$document->addScript( 'components/com_weever/static/js/jq.list.js?_dc=' . time() );
 		
 		//$document->addScript( 'components/com_weever/static/js/fileuploader.js' );
 		
 		//$document->addScript( 'components/com_weever/static/js/theme.js' );
 		
-		$document->addScript( 'components/com_weever/static/js/jquery.imgareaselect.min.js' );
+		$document->addScript( 'components/com_weever/static/js/jquery.imgareaselect.min.js?_dc=' . time() );
 		
 		echo $this->loadTemplate('js');
 		

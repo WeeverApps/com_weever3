@@ -318,28 +318,28 @@ if (!defined('PHP_EOL')) {
 //models	
 $pre_loaded_models = array( 'formbuilder.control.js', 'formbuilder.control.input.js', 'tab.js', 'subtab.js' );
 foreach ($pre_loaded_models as $pre_loaded_model) {
-     echo( '<script src="components/com_weever/static/js/models/'.$pre_loaded_model. '" type="text/javascript"></script>'.PHP_EOL );
+     echo( '<script src="components/com_weever/static/js/models/'.$pre_loaded_model. '?_dc=' . time() .'" type="text/javascript"></script>'.PHP_EOL );
 }
 
 foreach( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/models/*.js' ) as $model_js_file ) {
-     echo( '<script src="components/com_weever/static/js/models/'.basename($model_js_file). '" type="text/javascript"></script>'.PHP_EOL ); 
+     echo( '<script src="components/com_weever/static/js/models/'.basename($model_js_file). '?_dc=' . time() .'" type="text/javascript"></script>'.PHP_EOL ); 
 }
 
 //collections
 foreach( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/collections/*.js' ) as $collection_js_file ) {
-     echo( '<script src="components/com_weever/static/js/collections/'.basename($collection_js_file). '" type="text/javascript"></script>'.PHP_EOL );  
+     echo( '<script src="components/com_weever/static/js/collections/'.basename($collection_js_file). '?_dc=' . time() . '" type="text/javascript"></script>'.PHP_EOL );  
 }
 
 //views
 $pre_loaded_views = array( 'formbuilder.control.js', 'tab.js', 'subtab.edit.js', 'style.js' );
 foreach ( $pre_loaded_views as $pre_loaded_view ) {
-     echo( '<script src="components/com_weever/static/js/views/'.$pre_loaded_view.'" type="text/javascript"></script>'.PHP_EOL ); 
+     echo( '<script src="components/com_weever/static/js/views/'.$pre_loaded_view.'?_dc=' . time().'" type="text/javascript"></script>'.PHP_EOL ); 
 }	
 	
 foreach( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/views/*.js' ) as $view_js_file ) {
 
 	
-     echo( '<script src="components/com_weever/static/js/views/'.basename($view_js_file). '" type="text/javascript"></script>'.PHP_EOL );  
+     echo( '<script src="components/com_weever/static/js/views/'.basename($view_js_file). '?_dc=' . time() . '" type="text/javascript"></script>'.PHP_EOL );  
 }
 
 foreach ( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/spec/fixtures/*.html' ) as $backbone_template_file ) {
