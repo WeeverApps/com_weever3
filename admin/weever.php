@@ -57,7 +57,7 @@ $weeverIcon = "weever_toolbar_title";
 if( comWeeverHelper::joomlaVersion() < 3 )
 	$document->addScript( JURI::base(true).'/components/com_weever/assets/js/jquery.js?v='.comWeeverConst::VERSION );
 else
-	JHtml::_('jquery.framework');
+	JHtml::_('jquery.framework', false);
 
 
 /* Load our Javascripts */
