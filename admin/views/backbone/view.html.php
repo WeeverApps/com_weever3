@@ -104,6 +104,11 @@ class WeeverViewBackbone extends JViewLegacy
 		$uploadPath			= JPATH_SITE.'/media/com_weever';
 		$uploadUrl			= $siteDomain.'media/com_weever';
 		
+		if ( comWeeverHelper::componentExists('com_k2') )
+			$hasK2 = 1;
+		else
+			$hasK2 = 0;
+		
 		$content = "
 		    var wx = wx || {};
 		    wx.ajaxUrl = '".$ajaxUrl."';
@@ -115,6 +120,7 @@ class WeeverViewBackbone extends JViewLegacy
 		    wx.apiUrl = '".$apiUrl."';
 		    wx.uploadPath = '".$uploadPath."';
 		    wx.uploadUrl = '".$uploadUrl."';
+		    wx.hasK2 = '".$hasK2."';
 		    wx.poll = true;"
 		    ;
 		    //wx.uploadPath = true;
