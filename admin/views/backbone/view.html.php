@@ -73,6 +73,10 @@ class WeeverViewBackbone extends JViewLegacy
 		$this->assign( 'k2Categories', 	$k2Categories );
 		$this->assign( 'k2Items', 	$k2Items );
 		
+		
+		$joomlaContacts   		= $this->get('ContactItems');
+		$this->assign( 'joomlaContacts', 	$joomlaContacts );
+		
 		//var_dump($this->expiry);
 		//var_dump($this->appKey);
 		//var_dump($this->siteDomain);
