@@ -98,5 +98,10 @@ class WeeverController extends JControllerLegacy {
 	
 	}
 	
-
+	public function get_contact_feed() {
+		
+		comWeeverHelper::_buildContactFeed();
+	
+	}
+	
 }

@@ -594,13 +594,13 @@ class comWeeverHelper
 	}
 
 
-	public static function _buildContactFeedURL() 
+	public static function _buildContactFeed() 
 	{
 	
-		$config 	= JRequest::getVar('config');
-		$id 		= json_decode($config)->component_id;
+		//$config 	= JRequest::getVar('config');
+		$id 		= JRequest::getVar('contact_id');
 
-		if(JRequest::getVar('weever_action') == 'add')
+		if( $id )
 		{
 
 			$query 	= 	
@@ -646,12 +646,14 @@ class comWeeverHelper
 			$json_result->contacts	= $contacts;
 			$json_result 			= json_encode($json_result);
 			
-			JRequest::setVar('config_cache', $json_result);
-			JRequest::setVar('config', null);
+			//JRequest::setVar('config_cache', $json_result);
+			//JRequest::setVar('config', null);
 			
-		}
-		
-		return null;		
+			ob_clean();
+			print_r($json_result);
+			jexit();
+			
+		}		
 	
 	}
 	

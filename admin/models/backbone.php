@@ -186,14 +186,10 @@ class WeeverModelBackbone extends JModelLegacy
 	public function getContactItems()
     {
     
-            if(comWeeverHelper::joomlaVersion() == "1.5")
-                     $query = "SELECT * FROM #__contact_details WHERE published = '1' AND access = '0'"; 
-                     
-            else 
-                     $query = "SELECT * FROM #__contact_details WHERE published = '1' AND access < '2'"; 
-
-    
-            return $this->_getList($query);                
+        if(comWeeverHelper::joomlaVersion() == "2.5")
+        	$query = "SELECT * FROM #__contact_details WHERE published = '1' AND access < '2'";
+        	
+        return $this->_getList($query);                
 
     }
 
