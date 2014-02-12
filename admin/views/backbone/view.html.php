@@ -89,13 +89,14 @@ class WeeverViewBackbone extends JViewLegacy
 		
 		if ( comWeeverHelper::getKey() == '' ) {
 			//JText::_('Weever Apps is almost ready.');
-			JFactory::getApplication()->enqueueMessage('Weever Apps is almost ready. You must <a href="#" data-reveal-id="wx-account">enter your Weever Apps Subscription Key</a> for it to work. Don\'t have one?  <a target="_blank" href="http://weeverapps.com/pricing">Get one here</a>.', 'warning');
+			JFactory::getApplication()->enqueueMessage('Weever Apps is almost ready. You must <a href="#" data-reveal-id="wx-account">enter your Weever Apps Subscription Key</a> for it to work. Don\'t have one?  <a target="_blank" href="http://weeverapps.com">Get one here</a>.', 'warning');
 			//die();
 		}
 
 		$document 	= JFactory::getDocument();
-		//$document->addStyleSheet( JURI::base().'components/com_weever/static/css_joomla/app.css' );
-		$siteDomain			= 'http://'.$this->siteDomain.'/';
+		//$document->addStyleSheet( JURI::base().'components/com_weever/static/css_joomla2x/app.css' );
+        //$document->addStyleSheet( JURI::base().'components/com_weever/static/css_joomla3x/app.css' );
+        $siteDomain			= 'http://'.$this->siteDomain.'/';
 		$pluginUrl 			= JURI::base().'components/com_weever/';
 		$navIconDir 		= JURI::base().'components/com_weever/static/img/';
 		$baseExtensionUrl 	= JURI::base().'index.php?option=com_weever';

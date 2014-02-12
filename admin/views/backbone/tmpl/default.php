@@ -23,12 +23,15 @@
 defined('_JEXEC') or die;
 ?>
 
-<link rel="stylesheet" href="components/com_weever/assets/css/weever.css" type="text/css" />
+<!-- Joomla 2.x -->
+<link rel="stylesheet" href="components/com_weever/static/css_joomla2x/app.css" type="text/css" />
+<link rel="stylesheet" href="components/com_weever/static/css_joomla2x/admin.css" type="text/css" />
 
-<link rel="stylesheet" href="components/com_weever/static/css_joomla/app.css" type="text/css" />
+<!-- Joomla 3.x -->
+<!-- <link rel="stylesheet" href="components/com_weever/static/css_joomla3x/app.css" type="text/css" /> -->
+<!-- <link rel="stylesheet" href="components/com_weever/static/css_joomla3x/admin.css" type="text/css" /> -->
 
 <link rel="stylesheet" href="components/com_weever/static/css/weever-icon-font-1.css" type="text/css" />
-
 <link rel="stylesheet" href="components/com_weever/static/css/imgareaselect-default.css" type="text/css" />
 
 <!-- insert HTML here -->
@@ -69,7 +72,7 @@ defined('_JEXEC') or die;
 <div id="account-expiration-warning" class="row" style="display: none;">
     <div data-alert class="alert-box secondary">
         Your free trial app expires <span id="expiry-days">in ?? days</span>
-        <a target="_blank" href="http://weeverapps.com/pricing">View plans and pricing</a>.
+        <a target="_blank" href="http://weeverapps.com">View plans and pricing</a>.
         <a href="#" class="close">&times;</a>
     </div>
 </div>
@@ -77,7 +80,7 @@ defined('_JEXEC') or die;
 <div id="account-expired" class="row" style="display: none;">
     <div data-alert class="alert-box alert">
         Your app subscription is expired.
-        <a target="_blank" href="http://weeverapps.com/pricing">View plans and pricing</a>.
+        <a target="_blank" href="http://weeverapps.com">View plans and pricing</a>.
         <a href="#" class="close">&times;</a>
     </div>
 </div>
@@ -227,7 +230,7 @@ defined('_JEXEC') or die;
                 <a href="http://weeverapps.com/newsletter/">Newsletter</a>
                 <a href="http://weeverapps.com/contact/">Contact</a>
             </div>
-            <p class="copyright"><?php echo comWeeverConst::NAME; ?> v<?php echo comWeeverConst::VERSION; ?> "<?php echo comWeeverConst::RELEASE_NAME; ?>" <br><?php echo comWeeverConst::COPYRIGHT_YEAR; ?> <?php echo comWeeverConst::COPYRIGHT; ?> All rights reserved.</p>
+            <p class="copyright"><?php echo comWeeverConst::NAME; ?> v<?php echo comWeeverConst::VERSION; ?> &ldquo;<?php echo comWeeverConst::RELEASE_NAME; ?>&rdquo; <br><?php echo comWeeverConst::COPYRIGHT_YEAR; ?> <?php echo comWeeverConst::COPYRIGHT; ?> All rights reserved.</p>
         </div>
     </div>
 </div>
