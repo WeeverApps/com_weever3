@@ -12,7 +12,7 @@
 	<releaseType>Stable</releaseType>
 	<description>COM_WEEVER_DESCRIPTION</description>
 	
-	<scriptfile>install.weever.php</scriptfile>
+	<scriptfile>install.php</scriptfile>
  
 	<install>
 		<sql>
