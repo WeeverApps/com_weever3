@@ -23,13 +23,15 @@
 defined('_JEXEC') or die;
 ?>
 
-<!-- Joomla 2.x -->
-<link rel="stylesheet" href="components/com_weever/static/css_joomla2x/app.css" type="text/css" />
-<link rel="stylesheet" href="components/com_weever/static/css_joomla2x/admin.css" type="text/css" />
-
-<!-- Joomla 3.x -->
-<!-- <link rel="stylesheet" href="components/com_weever/static/css_joomla3x/app.css" type="text/css" /> -->
-<!-- <link rel="stylesheet" href="components/com_weever/static/css_joomla3x/admin.css" type="text/css" /> -->
+ <?php if( comWeeverHelper::joomlaVersion() == '2.5' ): ?>
+	<!-- Joomla 2.x -->
+	<link rel="stylesheet" href="components/com_weever/static/css_joomla2x/app.css" type="text/css" />
+	<link rel="stylesheet" href="components/com_weever/static/css_joomla2x/admin.css" type="text/css" />
+<?php else: ?>
+	<!-- Joomla 3.x -->
+	<link rel="stylesheet" href="components/com_weever/static/css_joomla3x/app.css" type="text/css" />
+	<link rel="stylesheet" href="components/com_weever/static/css_joomla3x/admin.css" type="text/css" />
+<?php endif; ?>
 
 <link rel="stylesheet" href="components/com_weever/static/css/weever-icon-font-1.css" type="text/css" />
 <link rel="stylesheet" href="components/com_weever/static/css/imgareaselect-default.css" type="text/css" />
