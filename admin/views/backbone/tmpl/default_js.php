@@ -53,8 +53,14 @@ $document->addCustomTag ('<script type="text/javascript">
                    jQuery(\'#wx-edit-title-K2Item\').val(title);
                    jQuery(\'#wx-add-k2-item-select\').val(\'index.php?option=com_k2&view=item&id=\' + id + \'&template=weever_cartographer\');
                    jQuery("#select-k2-item").foundation("reveal", "close");
+
+                   setTimeout( function() {
+
+                        jQuery("#wx-edit-area-K2Item").foundation("reveal", "open");
+
+                  }, 250);
                    
-                   jQuery("#wx-edit-area-K2Item").foundation("reveal", "open");
+                  
                        
                 }
 				
@@ -71,8 +77,14 @@ $document->addCustomTag ('<script type="text/javascript">
                    jQuery(\'#wx-edit-title-K2Category\').val(title);
                    jQuery(\'#wx-add-k2-category-select\').val(\'index.php?option=com_k2&view=itemlist&layout=category&task=category&template=weever_cartographer&id=\' + id);
                    jQuery("#select-k2-category").foundation("reveal", "close");
+
+                   setTimeout( function() {
+
+                       jQuery("#wx-edit-area-K2Category").foundation("reveal", "open");
+
+                  }, 250);
                    
-                   jQuery("#wx-edit-area-K2Category").foundation("reveal", "open");
+                  
                        
                 }
 				
@@ -124,7 +136,11 @@ $document->addCustomTag ('<script type="text/javascript">
                 	jQuery(\'#wx-add-joomla-article-select\').val(\'index.php?option=com_content&view=article&id=\' + id + \'&template=weever_cartographer\');
                 	jQuery("#select-joomla-article").foundation("reveal", "close");
                 	
-                	jQuery("#wx-edit-area-JoomlaArticle").foundation("reveal", "open");
+                	setTimeout( function() {
+
+                      jQuery("#wx-edit-area-JoomlaArticle").foundation("reveal", "open");
+
+                  }, 250);
                 	
                 }
                 
