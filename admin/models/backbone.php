@@ -98,10 +98,10 @@ class WeeverModelBackbone extends JModelLegacy
 		}
 		
 		$row->load(6);
-		$row->setting = $appEnabled;
+		$row->setting = (bool) $appEnabled ? 1 : 0;
 		$row->store();
 		
-		echo('{"success":true}');
+		echo('{"success":true');
 		die();
 	
 	}
