@@ -2,7 +2,7 @@
 <extension type="component" version="2.5" method="upgrade">
 
 	<name>COM_WEEVER</name>
-	<creationDate>2013-11-15</creationDate>
+	<creationDate>2014-02-13</creationDate>
 	<author>Aaron Song, Robert Gerald Porter, Matt Grande, Andrew Holden</author>
 	<authorEmail>support@weeverapps.com</authorEmail>
 	<authorUrl>http://www.weeverapps.com/</authorUrl>
