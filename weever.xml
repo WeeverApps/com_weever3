@@ -63,4 +63,10 @@
 		<filename>titlebar_logo_.png</filename>
 	</media>
 	 
+	<updateservers>
+
+		<server type="extension" priority="1" name="Updates for Weever appBuilder">http://updates.weeverapp.com/joomla/pkg_appbuilder.xml</server>
+
+	</updateservers>
+
 </extension>
