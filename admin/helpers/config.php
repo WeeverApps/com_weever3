@@ -5,6 +5,8 @@
 *
 *	Authors: 	Robert Gerald Porter 	<rob@weeverapps.com>
 *				Aaron Song 				<aaron@weeverapps.com>
+*               Matt Grande             <matt@weeverapps.com>
+*               Andrew Holden           <andrew@weeverapps.com>
 *	Version: 	3.0.0
 *   License: 	GPL v3.0
 *

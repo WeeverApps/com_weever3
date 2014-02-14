@@ -27,7 +27,7 @@
 
 	<administration>
 	
-		<menu link="com_weever" img="components/com_weever/assets/icon-16-weever_menu_logo.png">COM_WEEVER_MENU</menu>
+		<menu link="com_weever" img="components/com_weever/assets/img/joomla_weever_icon.png">COM_WEEVER_MENU</menu>
 			 
 		 <files folder="admin">
 		 

@@ -1,10 +1,12 @@
 <?php
 /*	
 *	Weever appBuilder™ for Joomla
-*	(c) 2010-2012 Weever Apps Inc. <http://www.weeverapps.com/>
+*	(c) 2010-2014 Weever Apps Inc. <http://www.weeverapps.com/>
 *
 *	Authors: 	Robert Gerald Porter 	<rob@weeverapps.com>
 *				Aaron Song 				<aaron@weeverapps.com>
+*               Matt Grande             <matt@weeverapps.com>
+*               Andrew Holden           <andrew@weeverapps.com>
 *	Version: 	3.0.0
 *   License: 	GPL v3.0
 *
