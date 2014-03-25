@@ -188,11 +188,19 @@ class comWeeverHelper
 
 	public static function getSiteDomain()
 	{
-	
-		$siteDomain = JURI::base();
-		$siteDomain = str_replace("http://","",$siteDomain);
-		$siteDomain = str_replace("administrator/","",$siteDomain);
-		$siteDomain = rtrim($siteDomain, "/");
+		
+		if ( comWeeverHelper::getKey() && comWeeverHelper::getKey()!= '' ) {
+			
+			$siteDomain = self::getSetting(4);
+		
+		} else {
+		
+			$siteDomain = JURI::base();
+			$siteDomain = str_replace("http://","",$siteDomain);
+			$siteDomain = str_replace("administrator/","",$siteDomain);
+			$siteDomain = rtrim($siteDomain, "/");
+			
+		}
 		
 		return $siteDomain;
 	
@@ -224,7 +232,45 @@ class comWeeverHelper
 		return $version;
 	
 	}
-
+	
+	public static function syncSiteDomain() {
+		
+		if ( comWeeverHelper::getKey() && comWeeverHelper::getKey()!= '' ) {
+			
+			$api_endpoint 		= "account/get_account";
+			$remote_url 		= comWeeverConst::LIVE_SERVER . comWeeverConst::API_VERSION . $api_endpoint;
+			//$stage_url 			= '';
+			$remote_query 		= array( 	
+			
+				'app_key' 		=> comWeeverHelper::getKey()
+			
+			);
+			
+			/*
+			if( comWeeverHelper::getStageStatus() )
+				$remote_url = comWeeverConst::LIVE_STAGE . comWeeverConst::API_VERSION . $api_endpoint;
+			*/
+			
+			$postdata 	= comWeeverHelper::buildWeeverHttpQuery($remote_query);
+			$response	= comWeeverHelper::sendToWeeverServer($postdata, $remote_url);
+			
+			$json		= json_decode( $response );
+			
+			//var_dump($json);
+			//die();
+			
+			$row 		= JTable::getInstance('WeeverConfig', 'Table');
+			
+			$row->load(4);
+			$row->setting = $json->account->site;
+			
+			$row->setting = rtrim( str_replace( "http://", "", $row->setting ), "/" );
+			
+			$row->store();
+			
+		}
+		
+	}
 	
 	public static function saveAccount()
 	{

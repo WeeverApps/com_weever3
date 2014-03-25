@@ -40,6 +40,9 @@ class WeeverViewBackbone extends JViewLegacy
 	public function display($tpl = null)
 	{
 
+		if ( comWeeverHelper::getKey() && comWeeverHelper::getKey() != '' )
+			comWeeverHelper::syncSiteDomain();
+		
 		$contentCategories   	= $this->get('contentCategories');
 		$contentArticles     	= $this->get('contentArticles');
 		$MenuJoomlaBlogs     	= $this->get('MenuJoomlaBlogs');
@@ -109,7 +112,7 @@ class WeeverViewBackbone extends JViewLegacy
 		$siteKey			= $this->appKey;
 		$apiUrl 			= comWeeverConst::LIVE_SERVER . comWeeverConst::API_VERSION;
 		$uploadPath			= JPATH_SITE.'/media/com_weever';
-		$uploadUrl			= $siteDomain.'media/com_weever';
+		$uploadUrl			= JURI::root().'media/com_weever';
 		
 		if ( comWeeverHelper::componentExists('com_k2') )
 			$hasK2 = 1;

@@ -56,6 +56,7 @@ class WeeverController extends JControllerLegacy {
 	
 	}
 	
+	/*
 	public function save_config() {
 		
 		$model  = $this->getModel('backbone');
@@ -63,7 +64,7 @@ class WeeverController extends JControllerLegacy {
 		$model->setTier();
 		
 	}
-	
+	*/
 	public function save_device() {
 		
 		$model  = $this->getModel('backbone');

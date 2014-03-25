@@ -48,7 +48,7 @@ class WeeverModelBackbone extends JModelLegacy
        $this->key 	= comWeeverHelper::getKey();
        
 	}
-	
+	/*
 	public function setTier()
 	{
 		
@@ -64,7 +64,7 @@ class WeeverModelBackbone extends JModelLegacy
 		//return $this->json;
 	
 	}
-	
+	*/
 	public function save_device()
 	{
 		
@@ -150,8 +150,7 @@ class WeeverModelBackbone extends JModelLegacy
 		comWeeverHelper::saveAccount();
 	
 	}
-	
-	
+	/*
 	private function getAccount()
 	{
 	
@@ -184,7 +183,7 @@ class WeeverModelBackbone extends JModelLegacy
 		return $json;
 
 	}
-	
+	*/
 	public function getContactItems()
     {
     
