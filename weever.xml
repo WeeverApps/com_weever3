@@ -27,7 +27,7 @@
 
 	<administration>
 	
-		<menu link="com_weever" img="components/com_weever/assets/img/joomla_weever_icon.png">COM_WEEVER_MENU</menu>
+		<menu link="com_weever" img="components/com_weever/assets/img/icon-16-appbuilder-joomla-25.png">COM_WEEVER_MENU</menu>
 			 
 		 <files folder="admin">
 		 
@@ -35,7 +35,6 @@
 			<filename>controller.php</filename>
 			<filename>index.html</filename>
 			<folder>assets</folder>
-			<folder>classes</folder>
 			<folder>static</folder>
 			<folder>helpers</folder>
 			<folder>models</folder>
