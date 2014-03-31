@@ -124,34 +124,39 @@ $document->addCustomTag ('<script type="text/javascript">
                 
                 function jSelectArticleNew(id, title, catid, object) {
 					
-					jQuery(\'.wx-edit-title\').val(title);
-					jQuery(\'#wx-add-joomla-article-select\').val(\'index.php?option=com_content&view=article&id=\' + id + \'&template=weever_cartographer\');
-					jQuery("#select-joomla-article").foundation("reveal", "close");
-					console.log(jQuery(\'.reveal-modal.open\'));
-					setTimeout( function() {
-						
-						
-						if( wx.modalTag == \'new\' ) {
-							
-							console.log(\'you new view......\');
-							
-							jQuery(\'#wx-edit-area-JoomlaArticle\').foundation("reveal", "open");
-							
-						} else {
-						
-							var linkId = jQuery(".wx-edit-link").attr( "data-reveal-id");
-							
-							console.log(\'you editing view......\');
-							console.log(linkId);
-							
-							jQuery(\'#\' + linkId).foundation("reveal", "open");
-						
-						}
-						
-						console.log(456654);
-	
-	                  }, 250);
-					
+          					jQuery(\'.wx-edit-title\').val(title);
+          					
+          					jQuery("#select-joomla-article").foundation("reveal", "close");
+
+          					console.log(jQuery(\'.reveal-modal.open\'));
+
+          					setTimeout( function() {
+              					
+            						if( wx.modalTag == \'new\' ) {
+            							
+            							console.log(\'you new view......\');
+            							
+            							jQuery(\'#wx-edit-area-JoomlaArticle\').foundation("reveal", "open");
+
+                          jQuery(\'#wx-edit-area-JoomlaArticle .wx-add-joomla-article-select\').val(\'index.php?option=com_content&view=article&id=\' + id + \'&template=weever_cartographer\');
+            							
+            						} else {
+            						
+            							var linkId = jQuery(".wx-edit-link").attr( "data-reveal-id");
+            							
+            							console.log(\'you editing view......\');
+            							console.log(linkId);
+            							
+            							jQuery(\'#\' + linkId).foundation("reveal", "open");
+
+                          jQuery(\'#\' + linkId + \' .wx-add-joomla-article-select\').val(\'index.php?option=com_content&view=article&id=\' + id + \'&template=weever_cartographer\');
+            						
+            						}
+            						
+            					//	console.log(456654);
+        	
+      	           }, 250);
+      					
                 }
                 
                 function jSelectArticle_jform_request_id(id, title, catid, object) {
