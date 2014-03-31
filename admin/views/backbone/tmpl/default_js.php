@@ -115,7 +115,7 @@ $document->addCustomTag ('<script type="text/javascript">
                 }
                 
                 function jSelectArticle(id, title, object) {
-                
+                	
             		jQuery(\'#wx-add-joomla-article-name\').val(title);
             		jQuery(\'#wx-add-joomla-article-url\').val(\'index.php?option=com_content&view=article&id=\' + id);
             		'.$js_close.'
@@ -124,11 +124,33 @@ $document->addCustomTag ('<script type="text/javascript">
                 
                 function jSelectArticleNew(id, title, catid, object) {
 					
-					jQuery(\'#wx-edit-title-JoomlaArticle\').val(title);
+					jQuery(\'.wx-edit-title\').val(title);
 					jQuery(\'#wx-add-joomla-article-select\').val(\'index.php?option=com_content&view=article&id=\' + id + \'&template=weever_cartographer\');
 					jQuery("#select-joomla-article").foundation("reveal", "close");
-					
-					jQuery("#wx-edit-area-JoomlaArticle").foundation("reveal", "open");
+					console.log(jQuery(\'.reveal-modal.open\'));
+					setTimeout( function() {
+						
+						
+						if( wx.modalTag == \'new\' ) {
+							
+							console.log(\'you new view......\');
+							
+							jQuery(\'#wx-edit-area-JoomlaArticle\').foundation("reveal", "open");
+							
+						} else {
+						
+							var linkId = jQuery(".wx-edit-link").attr( "data-reveal-id");
+							
+							console.log(\'you editing view......\');
+							console.log(linkId);
+							
+							jQuery(\'#\' + linkId).foundation("reveal", "open");
+						
+						}
+						
+						console.log(456654);
+	
+	                  }, 250);
 					
                 }
                 
@@ -141,6 +163,8 @@ $document->addCustomTag ('<script type="text/javascript">
                 	setTimeout( function() {
 
                       jQuery("#wx-edit-area-JoomlaArticle").foundation("reveal", "open");
+                      
+                      jQuery("jQuery(\'.wx-edit-link\').attr( \'data-reveal-id\' )").foundation("reveal", "open");
 
                   }, 250);
                 	
