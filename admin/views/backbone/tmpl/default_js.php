@@ -51,6 +51,47 @@ $document->addCustomTag ('<script type="text/javascript">
 				var JURI_base = "'.JURI::base().'";
 
 				function jSelectItem(id, title, object) {
+
+                    var el, model, featureId = "K2Item";
+
+                    jQuery("#select-k2-item").foundation("reveal", "close");
+
+                    if( wx.modalTag != "new" ) {
+
+                      el = wxApp.currentActiveView.$el.attr("id");
+
+                      console.log( el );
+                      console.log( wxApp.currentActiveView );
+
+                      model = wxApp.currentActiveView.model;
+
+                      wxApp.currentActiveView.destroyView();
+
+                      wxApp.currentActiveView = new wxApp[featureId + "SubTabEditView"]( { model: model, el: "#" + el } );
+
+                      wxApp.currentActiveView.render();
+
+                    } else {
+
+                      wxApp.currentActiveView.destroyView();
+
+                      wxApp.appView.createFeatureView( featureId, null, false );
+
+                    }
+
+
+                    setTimeout( function() {
+
+                       wxApp.currentActiveView.$el.foundation("reveal", "open");
+
+                       wxApp.currentActiveView.$(\'.wx-edit-title\').val(title);
+
+                       wxApp.currentActiveView.$(\'.wx-add-k2-item-select\').val(\'index.php?option=com_k2&view=item&id=\' + id + \'&template=weever_cartographer\');
+
+
+                   }, 250);
+
+          /*
                    
                    jQuery(\'#wx-edit-title-K2Item\').val(title);
                    jQuery(\'#wx-add-k2-item-select\').val(\'index.php?option=com_k2&view=item&id=\' + id + \'&template=weever_cartographer\');
@@ -61,7 +102,7 @@ $document->addCustomTag ('<script type="text/javascript">
                         jQuery("#wx-edit-area-K2Item").foundation("reveal", "open");
 
                   }, 250);
-                   
+                */
                   
                        
                 }
@@ -122,46 +163,91 @@ $document->addCustomTag ('<script type="text/javascript">
                 		
                 }
                 
-                function jSelectArticleNew(id, title, catid, object) {
-					
-          					jQuery(\'.wx-edit-title\').val(title);
-          					
-          					jQuery("#select-joomla-article").foundation("reveal", "close");
+                function jSelectArticleNew( id, title, catid, object ) {
 
-          					console.log(jQuery(\'.reveal-modal.open\'));
+                    var el, model, featureId = "JoomlaArticle";
+
+                    jQuery("#select-joomla-article").foundation("reveal", "close");
+
+                    if( wx.modalTag != "new" ) {
+
+                      el = wxApp.currentActiveView.$el.attr("id");
+
+                      console.log( el );
+                      console.log( wxApp.currentActiveView );
+
+                      model = wxApp.currentActiveView.model;
+
+                      wxApp.currentActiveView.destroyView();
+
+                      wxApp.currentActiveView = new wxApp[featureId + "SubTabEditView"]( { model: model, el: "#" + el } );
+
+                      wxApp.currentActiveView.render();
+
+                    } else {
+
+                      wxApp.currentActiveView.destroyView();
+
+                      wxApp.appView.createFeatureView( featureId, null, false );
+
+                    }
+
 
           					setTimeout( function() {
-              					
-            						if( wx.modalTag == \'new\' ) {
-            							
-            							console.log(\'you new view......\');
-            							
-            							jQuery(\'#wx-edit-area-JoomlaArticle\').foundation("reveal", "open");
 
-                          jQuery(\'#wx-edit-area-JoomlaArticle .wx-add-joomla-article-select\').val(\'index.php?option=com_content&view=article&id=\' + id + \'&template=weever_cartographer\');
-            							
-            						} else {
-            						
-            							var linkId = jQuery(".wx-edit-link").attr( "data-reveal-id");
-            							
-            							console.log(\'you editing view......\');
-            							console.log(linkId);
-            							
-            							jQuery(\'#\' + linkId).foundation("reveal", "open");
+                       wxApp.currentActiveView.$el.foundation("reveal", "open");
 
-                          jQuery(\'#\' + linkId + \' .wx-add-joomla-article-select\').val(\'index.php?option=com_content&view=article&id=\' + id + \'&template=weever_cartographer\');
-            						
-            						}
-            						
-            					//	console.log(456654);
-        	
+                       wxApp.currentActiveView.$(\'.wx-edit-title\').val(title);
+
+                        wxApp.currentActiveView.$(\'.wx-add-joomla-article-select\').val(\'index.php?option=com_content&view=article&id=\' + id + \'&template=weever_cartographer\');
+
+
       	           }, 250);
       					
                 }
                 
                 function jSelectArticle_jform_request_id(id, title, catid, object) {
+
+                  var el, model, featureId = "JoomlaArticle";
+
+                    jQuery("#select-joomla-article").foundation("reveal", "close");
+
+                    if( wx.modalTag != "new" ) {
+
+                      el = wxApp.currentActiveView.$el.attr("id");
+
+                      console.log( el );
+                      console.log( wxApp.currentActiveView );
+
+                      model = wxApp.currentActiveView.model;
+
+                      wxApp.currentActiveView.destroyView();
+
+                      wxApp.currentActiveView = new wxApp[featureId + "SubTabEditView"]( { model: model, el: "#" + el } );
+
+                      wxApp.currentActiveView.render();
+
+                    } else {
+
+                      wxApp.currentActiveView.destroyView();
+
+                      wxApp.appView.createFeatureView( featureId, null, false );
+
+                    }
+
+
+                    setTimeout( function() {
+
+                       wxApp.currentActiveView.$el.foundation("reveal", "open");
+
+                       wxApp.currentActiveView.$(\'.wx-edit-title\').val(title);
+
+                        wxApp.currentActiveView.$(\'.wx-add-joomla-article-select\').val(\'index.php?option=com_content&view=article&id=\' + id + \'&template=weever_cartographer\');
+
+
+                   }, 250);
                 	
-                	jQuery(\'#wx-edit-title-JoomlaArticle\').val(title);
+                	/*jQuery(\'#wx-edit-title-JoomlaArticle\').val(title);
                 	jQuery(\'#wx-add-joomla-article-select\').val(\'index.php?option=com_content&view=article&id=\' + id + \'&template=weever_cartographer\');
                 	jQuery("#select-joomla-article").foundation("reveal", "close");
                 	
@@ -171,7 +257,7 @@ $document->addCustomTag ('<script type="text/javascript">
                       
                       jQuery("jQuery(\'.wx-edit-link\').attr( \'data-reveal-id\' )").foundation("reveal", "open");
 
-                  }, 250);
+                  }, 250);*/
                 	
                 }
                 
