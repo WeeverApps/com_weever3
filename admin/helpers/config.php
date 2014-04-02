@@ -1,13 +1,13 @@
 <?php
 /*	
 *	Weever appBuilder™ for Joomla
-*	(c) 2010-2013 Weever Apps Inc. <http://www.weeverapps.com/>
+*	(c) 2010-2014 Weever Apps Inc. <http://www.weeverapps.com/>
 *
 *	Authors: 	Robert Gerald Porter 	<rob@weeverapps.com>
 *				Aaron Song 				<aaron@weeverapps.com>
 *               Matt Grande             <matt@weeverapps.com>
 *               Andrew Holden           <andrew@weeverapps.com>
-*	Version: 	3.0.0
+*	Version: 	3.0.1
 *   License: 	GPL v3.0
 *
 *   This extension is free software: you can redistribute it and/or modify
@@ -31,7 +31,7 @@ jimport('joomla.plugin.helper');
 final class comWeeverConst
 {
 
-	const VERSION			= "3.0.0";
+	const VERSION			= "3.0.1";
 	const RELEASE_TYPE		= "release";
 	const RELEASE_NAME		= "Bay of Fundy";
 	const NAME				= "appBuilder for Joomla!";
