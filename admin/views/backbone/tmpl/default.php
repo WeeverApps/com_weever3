@@ -4,10 +4,10 @@
 *	(c) 2010-2014 Weever Apps Inc. <http://www.weeverapps.com/>
 *
 *   Authors:      Robert Gerald Porter      <rob@weeverapps.com>
-*                 Aaron Song                       <aaron@weeverapps.com>
-*                 Matt Grande             <matt@weeverapps.com>
-*                 Andrew Holden           <andrew@weeverapps.com>
-*   Version:      3.0.0
+*                 Aaron Song                <aaron@weeverapps.com>
+*                 Matt Grande             	<matt@weeverapps.com>
+*                 Andrew Holden           	<andrew@weeverapps.com>
+*   Version:      3.0.1
 *   License:      GPL v3.0
 *
 *   This extension is free software: you can redistribute it and/or modify
@@ -290,6 +290,62 @@ defined('_JEXEC') or die;
             setTimeout(doPoll, 1000);
         }
     }
+    
+    
+    var req = false;
+    function refreshSession() {
+    
+		//var r=confirm("The session is going to expired, do you wanna renew it?");
+		//if (r==true) {
+			
+			req = false;
+	        if( window.XMLHttpRequest && !(window.ActiveXObject) ) {
+	            try {
+	                req = new XMLHttpRequest();
+	            } catch(e) {
+	                req = false;
+	            }
+	        // branch for IE/Windows ActiveX version
+	        } else if(window.ActiveXObject) {
+	            try {
+	                req = new ActiveXObject("Msxml2.XMLHTTP");
+	            } catch(e) {
+	                try {
+	                    req = new ActiveXObject("Microsoft.XMLHTTP");
+	                } catch(e) {
+	                    req = false;
+	                }
+	            }
+	        }
+	
+	        if(req) {
+	            req.onreadystatechange = processReqChange;
+	            req.open("HEAD", "<?php echo JURI::base(); ?>", true);
+	            req.send();
+	        }
+		
+		//} else {
+			//return;
+		//}
+		
+	}
+
+    function processReqChange() {
+        // only if req shows "loaded"
+        if(req.readyState == 4) {
+            // only if "OK"
+            if(req.status == 200) {
+                // TODO: think what can be done here
+                
+            } else {
+                // TODO: think what can be done here
+                //alert("There was a problem retrieving the XML data: " + req.statusText);
+            }
+        }
+    }
+
+    setInterval("refreshSession()", <?php echo $this->timeout; ?>);
+    
     
 </script>
 
