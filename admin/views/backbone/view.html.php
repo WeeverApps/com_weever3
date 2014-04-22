@@ -4,9 +4,9 @@
 *	(c) 2010-2014 Weever Apps Inc. <http://www.weeverapps.com/>
 *
 *	Authors:      Robert Gerald Porter 	    <rob@weeverapps.com>
-*                 Aaron Song 				       <aaron@weeverapps.com>
-*                 Matt Grande             <matt@weeverapps.com>
-*                 Andrew Holden           <andrew@weeverapps.com>
+*                 Aaron Song 				<aaron@weeverapps.com>
+*                 Matt Grande             	<matt@weeverapps.com>
+*                 Andrew Holden           	<andrew@weeverapps.com>
 *	Version: 	  3.0.1
 *   License: 	  GPL v3.0
 *
@@ -39,7 +39,9 @@ class WeeverViewBackbone extends JViewLegacy
 
 	public function display($tpl = null)
 	{
-
+		
+		$timeout = intval(JFactory::getApplication()->getCfg('lifetime') * 60/2 * 1000);//current session lifetime divided by 2, not sure why.
+		
 		if ( comWeeverHelper::getKey() && comWeeverHelper::getKey() != '' )
 			comWeeverHelper::syncSiteDomain();
 		
@@ -54,6 +56,7 @@ class WeeverViewBackbone extends JViewLegacy
 		//var_dump($MenuK2Blogs);
 		//die();
 		
+		$this->assign( 'timeout', 		$timeout );
 		$this->assign( 'appEnabled', 	comWeeverHelper::getAppStatus() );		
 		$this->assign( 'appKey', 		comWeeverHelper::getKey() );
 		$this->assign( 'siteDomain', 	comWeeverHelper::getSiteDomain() );
