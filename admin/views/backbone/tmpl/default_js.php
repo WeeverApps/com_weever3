@@ -91,7 +91,7 @@ $document->addCustomTag ('<script type="text/javascript">
 
                    }, 250);
 
-          /*
+          		/*
                    
                    jQuery(\'#wx-edit-title-K2Item\').val(title);
                    jQuery(\'#wx-add-k2-item-select\').val(\'index.php?option=com_k2&view=item&id=\' + id + \'&template=weever_cartographer\');
@@ -102,6 +102,7 @@ $document->addCustomTag ('<script type="text/javascript">
                         jQuery("#wx-edit-area-K2Item").foundation("reveal", "open");
 
                   }, 250);
+                  
                 */
                   
                        
@@ -130,19 +131,27 @@ $document->addCustomTag ('<script type="text/javascript">
                   
                        
                 }
+                
+                function jSelectTag(id, title, object) {
+                                   
+                   jQuery(\'#wx-edit-title-K2Tag\').val(title);
+                   jQuery(\'#wx-add-k2-tag-select\').val(\'index.php?option=com_k2&view=itemlist&layout=tag&template=weever_cartographer&id=\' + id);
+                   jQuery("#select-k2-tag").foundation("reveal", "close");
+
+                   setTimeout( function() {
+
+                       jQuery("#wx-edit-area-K2Tag").foundation("reveal", "open");
+
+                  }, 250);
+                   
+                  
+                       
+                }
 				
 				function jEasyblogSelectCategory(id, title, object) {
 			
                     jQuery(\'#wx-add-easyblog-category-url\').val(\'index.php?option=com_easyblog&view=categories&layout=listings&format=weever&id=\' + id);
                     jQuery(\'#wx-add-easyblog-category-name\').val(title);
-                   '.$js_close.'
-                       
-                }
-
-				function jSelectTag(id, title, object) {
-			
-                    jQuery(\'#wx-add-k2-tag-url\').val(\'index.php?option=com_k2&view=itemlist&task=tag&template=weever_cartographer&tag=\' + title);
-                    jQuery(\'#wx-add-k2-tag-name\').val(title);
                    '.$js_close.'
                        
                 }
