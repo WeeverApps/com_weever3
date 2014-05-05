@@ -7,7 +7,7 @@
 *                 Aaron Song 				       <aaron@weeverapps.com>
 *                 Matt Grande             <matt@weeverapps.com>
 *                 Andrew Holden           <andrew@weeverapps.com>
-*	Version: 	  3.0.1
+*	Version: 	  3.1
 *   License: 	  GPL v3.0
 *
 *   This extension is free software: you can redistribute it and/or modify
