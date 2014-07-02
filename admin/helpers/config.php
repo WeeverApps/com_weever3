@@ -7,7 +7,7 @@
 *				Aaron Song 				<aaron@weeverapps.com>
 *               Matt Grande             <matt@weeverapps.com>
 *               Andrew Holden           <andrew@weeverapps.com>
-*	Version: 	3.1
+*	Version: 	3.2
 *   License: 	GPL v3.0
 *
 *   This extension is free software: you can redistribute it and/or modify
@@ -31,7 +31,7 @@ jimport('joomla.plugin.helper');
 final class comWeeverConst
 {
 
-	const VERSION			= "3.1";
+	const VERSION			= "3.2";
 	const RELEASE_TYPE		= "release";
 	const RELEASE_NAME		= "Cape Breton Highlands";
 	const NAME				= "appBuilder for Joomla!";
@@ -40,7 +40,7 @@ final class comWeeverConst
 	const COPYRIGHT_URL		= "http://www.weeverapps.com/";
 	const LICENSE			= "GPL v3.0";
 	const LICENSE_URL		= "http://www.gnu.org/licenses/gpl-3.0.html";
-	const RELEASE_DATE		= "May 5, 2014";
+	const RELEASE_DATE		= "July 2, 2014";
 	const SUPPORT_WEB		= "http://support.weeverapps.com/";
 	const LIVE_SERVER		= "http://weeverapp.com/";
 	const API_VERSION		= "api/v2/";
