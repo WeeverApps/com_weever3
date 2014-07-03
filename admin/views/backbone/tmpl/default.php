@@ -394,7 +394,7 @@ foreach( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/collections/*.js' ) as
 }
 
 //views
-$pre_loaded_views = array( 'formbuilder.control.js', 'tab.js', 'subtab.edit.js', 'style.js' );
+$pre_loaded_views = array( 'formbuilder.control.js', 'tab.js', 'subtab.edit.js', 'style.js', 'subtab.formbuilder.edit.js', 'subtab.wordpressaddpage.edit.js' );
 foreach ( $pre_loaded_views as $pre_loaded_view ) {
      echo( '<script src="components/com_weever/static/js/views/'.$pre_loaded_view.'?_dc=' . time().'" type="text/javascript"></script>'.PHP_EOL ); 
 }	
@@ -405,7 +405,20 @@ foreach( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/views/*.js' ) as $view
      echo( '<script src="components/com_weever/static/js/views/'.basename($view_js_file). '?_dc=' . time() . '" type="text/javascript"></script>'.PHP_EOL );  
 }
 
-foreach ( glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/spec/fixtures/*.html' ) as $backbone_template_file ) {
+$backbone_template_files = glob( JPATH_COMPONENT_ADMINISTRATOR. '/static/js/spec/fixtures/*.html' );
+
+//var_dump($backbone_template_files);
+
+for ($i = 0; $i < 65; $i++) {
+	
+	if ( !strpos($backbone_template_files[$i], 'iconselector') ) {
+		include ( $backbone_template_files[$i] );
+	}
+	
+}
+
+/*
+foreach (  ) {
 	
 	//cannot not load wordpress files inside fixtures
 	//if ( strpos($backbone_template_file, 'wordpress') !== false ) {
